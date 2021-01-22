@@ -1,0 +1,11 @@
+{
+	"name": "RERailworld",
+	"version": "0.2.0",
+	"title": "Red Extended Railworld",
+	"author": "RedMike-PT",
+	"contact": "",
+	"homepage": "",
+	"factorio_version": "0.18",
+	"dependencies": ["base >= 0.18"],
+	"description": "This mod extends the game with new Content."
+}
