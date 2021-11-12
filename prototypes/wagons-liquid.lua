@@ -96,7 +96,7 @@ data:extend({
 	sound_minimum_speed = 0.5;
 	vehicle_impact_sound =  { filename = "__base__/sound/car-wood-impact.ogg", volume = 1.0 },
 },
-{--Liquid Wagon R1
+{--Liquid Wagon R2
 	type = "fluid-wagon",
 	name = "fluid-wagon-r2",
 	icon = "__RERailworld__/graphics/icons/wagon/liquid-wagon-r2.png",
@@ -154,7 +154,7 @@ data:extend({
 	},
 	vertical_selection_shift = -0.8,
 	weight = 3000,
-	max_speed = 5,	--216 * 5 = 1080 km/h
+	max_speed = 40,	--216*40 = 8640 km/h
 	braking_force = 50, 
 	friction_force = 0.15, 
 	air_resistance = 0.00375,		
