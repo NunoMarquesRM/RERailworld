@@ -5,38 +5,38 @@ data:extend({
 	name = "workshop-loco-r1",
 	enabled = false,
 	ingredients = {
-		{"reinforced-iron-plate-r1", 5},
-		{"reinforced-copper-plate-r1", 5},
-		{"electric-component-r1", 10},
-		{"cable-r1", 10},
-		{"half-assembler-r1", 2}
+		{type = "item", name = "reinforced-iron-plate-r1", amount = 5},
+		{type = "item", name = "reinforced-copper-plate-r1", amount = 5},
+		{type = "item", name = "electric-component-r1", amount = 10},
+		{type = "item", name = "cable-r1", amount = 10},
+		{type = "item", name = "half-assembler-r1", amount = 2}
 	},
-	result = "workshop-loco-r1"
+	results = {{type="item", name="workshop-loco-r1", amount=1}}
 },
 {--Workshop Wagon
 	type = "recipe",
 	name = "workshop-wagon-r1",
 	enabled = false,
 	ingredients = {
-		{"reinforced-iron-plate-r1", 5},
-		{"reinforced-copper-plate-r1", 5},
-		{"electric-component-r1", 10},
-		{"cable-r1", 10},
-		{"assembler-r1", 2}
+		{type = "item", name = "reinforced-iron-plate-r1", amount = 5},
+		{type = "item", name = "reinforced-copper-plate-r1", amount = 5},
+		{type = "item", name = "electric-component-r1", amount = 10},
+		{type = "item", name = "cable-r1", amount = 10},
+		{type = "item", name = "assembler-r1", amount = 2}
 	},
-	result = "workshop-wagon-r1"
+	results = {{type="item", name="workshop-wagon-r1", amount=1}}
 },
 {--Workshop Extreme Fuel
 	type = "recipe",
 	name = "workshop-giga-r1",
 	enabled = false,
 	ingredients = {
-		{"reinforced-coal-plate-r1", 20},
-		{"electric-component-r1", 10},
-		{"cable-r1", 10},
-		{"assembler-r1", 2}
+		{type = "item", name = "reinforced-coal-plate-r1", amount = 20},
+		{type = "item", name = "electric-component-r1", amount = 10},
+		{type = "item", name = "cable-r1", amount = 10},
+		{type = "item", name = "assembler-r1", amount = 2}
 	},
-	result = "workshop-giga-r1"
+	results = {{type="item", name="workshop-giga-r1", amount=1}}
 },
 --ITEM
 {--Workshop Locomotive

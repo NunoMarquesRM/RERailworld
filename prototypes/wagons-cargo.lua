@@ -1,3 +1,11 @@
+local drive_over_tie = function()
+  return
+  {
+    type = "play-sound",
+    sound = sound_variations("__base__/sound/train-tie", 6, 0.4, { volume_multiplier("main-menu", 2.4), volume_multiplier("driving", 1.3) } )
+  }
+end
+
 data:extend({ 
 --ENTITY
 {--Cargo Wagon R1
@@ -12,12 +20,10 @@ data:extend({
 	max_health = 1000,
 	corpse = "medium-remnants",
 	dying_explosion = "medium-explosion",
-
 	collision_box = {{-0.6, -2.4}, {0.6, 2.4}},
 	selection_box = {{-1.0, -2.7}, {1, 3.2}},		
 	connection_distance = 3, 
 	joint_distance = 4,
-
 	weight = 1500,
 	max_speed = 2.4,	--216 * 2.4 = 518,4 km/h
 	braking_force = 20,
@@ -432,12 +438,12 @@ local cwag_r1 = table.deepcopy(data.raw['recipe']['cargo-wagon'])
 cwag_r1.name = "cargo-wagon-r1"
 cwag_r1.enabled = false
 cwag_r1.ingredients = {
-	{"cargo-wagon", 1},
-	{"iron-gear-wheel", 5},
-	{"copper-gear-wheel-r1",5},
-	{"steel-plate", 10}
+	{type = "item", name = "cargo-wagon", amount = 1},
+	{type = "item", name = "iron-gear-wheel", amount = 5},
+	{type = "item", name = "copper-gear-wheel-r1", amount = 5},
+	{type = "item", name = "steel-plate", amount = 10}
 }
-cwag_r1.result = "cargo-wagon-r1"
+cwag_r1.results = {{type="item", name="cargo-wagon-r1", amount=1}}
 cwag_r1.category = "red-workshop-wagon"
 
 local cwag_r1_item = table.deepcopy(data.raw['item-with-entity-data']['cargo-wagon'])
@@ -454,12 +460,12 @@ local cwag_r2 = table.deepcopy(data.raw['recipe']['cargo-wagon'])
 cwag_r2.name = "cargo-wagon-r2"
 cwag_r2.enabled = false
 cwag_r2.ingredients = {
-	{"cargo-wagon-r1", 1},
-	{"electric-component-r1", 5},
-	{"cable-r1",5},
-	{"reinforced-component-r1", 5}
+	{type = "item", name = "cargo-wagon-r1", amount = 1},
+	{type = "item", name = "electric-component-r1", amount = 5},
+	{type = "item", name = "cable-r1", amount = 5},
+	{type = "item", name = "reinforced-component-r1", amount = 5}
 }
-cwag_r2.result = "cargo-wagon-r2"
+cwag_r2.results = {{type="item", name="cargo-wagon-r2", amount=1}}
 cwag_r2.category = "red-workshop-wagon"
 
 local cwag_r2_item = table.deepcopy(data.raw['item-with-entity-data']['cargo-wagon'])
@@ -478,11 +484,11 @@ local copwag_r1 = table.deepcopy(data.raw['recipe']['cargo-wagon'])
 copwag_r1.name = "cargo-wagon-copper-r1"
 copwag_r1.enabled = false
 copwag_r1.ingredients = {
-	{"cargo-wagon-r2",1},
-	{"reinforced-copper-plate-r1", 20},
-	{"reinforced-gear-copper-r1",5}
+	{type = "item", name = "cargo-wagon-r2", amount = 1},
+	{type = "item", name = "reinforced-copper-plate-r1", amount = 20},
+	{type = "item", name = "reinforced-gear-copper-r1", amount = 5}
 }
-copwag_r1.result = "cargo-wagon-copper-r1"
+copwag_r1.results = {{type="item", name="cargo-wagon-copper-r1", amount=1}}
 copwag_r1.category = "red-workshop-wagon"
 
 local copwag_r1_item = table.deepcopy(data.raw['item-with-entity-data']['cargo-wagon'])
@@ -500,11 +506,11 @@ local ironwag_r1 = table.deepcopy(data.raw['recipe']['cargo-wagon'])
 ironwag_r1.name = "cargo-wagon-iron-r1"
 ironwag_r1.enabled = false
 ironwag_r1.ingredients = {
-	{"cargo-wagon-r2",1},
-	{"reinforced-iron-plate-r1", 20},
-	{"reinforced-gear-iron-r1",5}
+	{type = "item", name = "cargo-wagon-r2", amount = 1},
+	{type = "item", name = "reinforced-iron-plate-r1", amount = 20},
+	{type = "item", name = "reinforced-gear-iron-r1", amount = 5}
 }
-ironwag_r1.result = "cargo-wagon-iron-r1"
+ironwag_r1.results = {{type="item", name="cargo-wagon-iron-r1", amount=1}}
 ironwag_r1.category = "red-workshop-wagon"
 
 local ironwag_r1_item = table.deepcopy(data.raw['item-with-entity-data']['cargo-wagon'])
@@ -522,11 +528,11 @@ local coalwag_r1 = table.deepcopy(data.raw['recipe']['cargo-wagon'])
 coalwag_r1.name = "cargo-wagon-coal-r1"
 coalwag_r1.enabled = false
 coalwag_r1.ingredients = {
-	{"cargo-wagon-r2",1},
-	{"reinforced-coal-plate-r1", 20},
-	{"reinforced-component-r1", 5}
+	{type = "item", name = "cargo-wagon-r2", amount = 1},
+	{type = "item", name = "reinforced-coal-plate-r1", amount = 20},
+	{type = "item", name = "reinforced-component-r1", amount = 5}
 }
-coalwag_r1.result = "cargo-wagon-coal-r1"
+coalwag_r1.results = {{type="item", name="cargo-wagon-coal-r1", amount=1}}
 coalwag_r1.category = "red-workshop-wagon"
 
 local coalwag_r1_item = table.deepcopy(data.raw['item-with-entity-data']['cargo-wagon'])
@@ -544,12 +550,12 @@ local stonewag_r1 = table.deepcopy(data.raw['recipe']['cargo-wagon'])
 stonewag_r1.name = "cargo-wagon-stone-r1"
 stonewag_r1.enabled = false
 stonewag_r1.ingredients = {
-	{"cargo-wagon-r2",1},
-	{"stone", 50},
-	{"reinforced-gear-iron-r1",5},
-	{"steel-plate", 10}
+	{type = "item", name = "cargo-wagon-r2", amount = 1},
+	{type = "item", name = "stone", amount = 50},
+	{type = "item", name = "reinforced-gear-iron-r1", amount = 5},
+	{type = "item", name = "steel-plate", amount = 10}
 }
-stonewag_r1.result = "cargo-wagon-stone-r1"
+stonewag_r1.results = {{type="item", name="cargo-wagon-stone-r1", amount=1}}
 stonewag_r1.category = "red-workshop-wagon"
 
 local stonewag_r1_item = table.deepcopy(data.raw['item-with-entity-data']['cargo-wagon'])
@@ -567,12 +573,12 @@ local stonewag_r2 = table.deepcopy(data.raw['recipe']['cargo-wagon'])
 stonewag_r2.name = "cargo-wagon-stone-r2"
 stonewag_r2.enabled = false
 stonewag_r2.ingredients = {
-	{"cargo-wagon-r2",1},
-	{"stone", 50},
-	{"reinforced-gear-iron-r1",5},
-	{"steel-plate", 10}
+	{type = "item", name = "cargo-wagon-r2", amount = 1},
+	{type = "item", name = "stone", amount = 50},
+	{type = "item", name = "reinforced-gear-iron-r1", amount = 5},
+	{type = "item", name = "steel-plate", amount = 10}
 }
-stonewag_r2.result = "cargo-wagon-stone-r2"
+stonewag_r2.results = {{type="item", name="cargo-wagon-stone-r2", amount=1}}
 stonewag_r2.category = "red-workshop-wagon"
 
 local stonewag_r2_item = table.deepcopy(data.raw['item-with-entity-data']['cargo-wagon'])
@@ -590,12 +596,12 @@ local urawag_r1 = table.deepcopy(data.raw['recipe']['cargo-wagon'])
 urawag_r1.name = "cargo-wagon-uranium-r1"
 urawag_r1.enabled = false
 urawag_r1.ingredients = {
-	{"cargo-wagon-r2",1},
-	{"uranium-ore", 50},
-	{"reinforced-gear-iron-r1",5},
-	{"steel-plate", 10}
+	{type = "item", name = "cargo-wagon-r2", amount = 1},
+	{type = "item", name = "uranium-ore", amount = 50},
+	{type = "item", name = "reinforced-gear-iron-r1", amount = 5},
+	{type = "item", name = "steel-plate", amount = 10}
 }
-urawag_r1.result = "cargo-wagon-uranium-r1"
+urawag_r1.results = {{type="item", name="cargo-wagon-uranium-r1", amount=1}}
 urawag_r1.category = "red-workshop-wagon"
 
 local urawag_r1_item = table.deepcopy(data.raw['item-with-entity-data']['cargo-wagon'])
@@ -613,12 +619,12 @@ local urawag_r2 = table.deepcopy(data.raw['recipe']['cargo-wagon'])
 urawag_r2.name = "cargo-wagon-uranium-r2"
 urawag_r2.enabled = false
 urawag_r2.ingredients = {
-	{"cargo-wagon-r2",1},
-	{"uranium-ore", 50},
-	{"reinforced-gear-iron-r1",5},
-	{"steel-plate", 10}
+	{type = "item", name = "cargo-wagon-r2", amount = 1},
+	{type = "item", name = "uranium-ore", amount = 50},
+	{type = "item", name = "reinforced-gear-iron-r1", amount = 5},
+	{type = "item", name = "steel-plate", amount = 10}
 }
-urawag_r2.result = "cargo-wagon-uranium-r2"
+urawag_r2.results = {{type="item", name="cargo-wagon-uranium-r2", amount=1}}
 urawag_r2.category = "red-workshop-wagon"
 
 local urawag_r2_item = table.deepcopy(data.raw['item-with-entity-data']['cargo-wagon'])

@@ -1,3 +1,12 @@
+local drive_over_tie = function()
+  return
+  {
+    type = "play-sound",
+    sound = sound_variations("__base__/sound/train-tie", 6, 0.4, { volume_multiplier("main-menu", 2.4), volume_multiplier("driving", 1.3) } )
+  }
+end
+
+
 data:extend({ 
 --ENTITY
 {--Liquid Wagon R1
@@ -198,12 +207,12 @@ local fwag_r1 = table.deepcopy(data.raw['recipe']['fluid-wagon'])
 fwag_r1.name = "fluid-wagon-r1"
 fwag_r1.enabled = false
 fwag_r1.ingredients = {
-	{"fluid-wagon", 1},
-	{"iron-gear-wheel", 5},
-	{"copper-gear-wheel-r1", 5},
-	{"steel-plate", 10}
+	{type = "item", name = "fluid-wagon", amount = 1},
+	{type = "item", name = "iron-gear-wheel", amount = 5},
+	{type = "item", name = "copper-gear-wheel-r1", amount = 5},
+	{type = "item", name = "steel-plate", amount = 10}
 }
-fwag_r1.result = "fluid-wagon-r1"
+fwag_r1.results = {{type="item", name="fluid-wagon-r1", amount=1}}
 fwag_r1.category = "red-workshop-wagon"
 
 local fwag_r1_item = table.deepcopy(data.raw['item-with-entity-data']['fluid-wagon'])
@@ -220,12 +229,12 @@ local fwag_r2 = table.deepcopy(data.raw['recipe']['fluid-wagon'])
 fwag_r2.name = "fluid-wagon-r2"
 fwag_r2.enabled = false
 fwag_r2.ingredients = {
-	{"fluid-wagon-r1", 2},
-	{"electric-component-r1", 5},
-	{"cable-r1",5},
-	{"reinforced-component-r1", 5}
+	{type = "item", name = "fluid-wagon-r1", amount = 2},
+	{type = "item", name = "electric-component-r1", amount = 5},
+	{type = "item", name = "cable-r1", amount = 5},
+	{type = "item", name = "reinforced-component-r1", amount = 5}
 }
-fwag_r2.result = "fluid-wagon-r2"
+fwag_r2.results = {{type="item", name="fluid-wagon-r2", amount=1}}
 fwag_r2.category = "red-workshop-wagon"
 
 local fwag_r2_item = table.deepcopy(data.raw['item-with-entity-data']['fluid-wagon'])

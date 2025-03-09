@@ -1,41 +1,49 @@
+local drive_over_tie = function()
+  return
+  {
+    type = "play-sound",
+    sound = sound_variations("__base__/sound/train-tie", 6, 0.4, { volume_multiplier("main-menu", 2.4), volume_multiplier("driving", 1.3) } )
+  }
+end
+
 data:extend({
 --RECIPE
 	{--Sonic Train R1
 		type = "recipe",
 		name = "sonic-train-r1",
-		enabled = "false",
+		enabled = false,
 		ingredients = {
-			{"locomotive",2},
-			{"steel-plate",200},
-			{"iron-plate",500}
+			{type = "item", name = "locomotive", amount = 2},
+			{type = "item", name = "steel-plate", amount = 200},
+			{type = "item", name = "iron-plate", amount = 500}
 		},
-		result = "sonic-train-r1",
+		results = {{type="item", name="sonic-train-r1", amount=1}},
 		category = "red-workshop-locomotive"
 	},
 	{--Sonic Train R2
 		type = "recipe",
 		name = "sonic-train-r2",
-		enabled = "false",
+		enabled = false,
 		ingredients = {
-			{"sonic-train-r1",3},
-			{"steel-plate",500},
-			{"iron-plate",500},
-			{"electronic-circuit",200}
+			{type = "item", name = "sonic-train-r1", amount = 3},
+			{type = "item", name = "steel-plate", amount = 500},
+			{type = "item", name = "iron-plate", amount = 500},
+			{type = "item", name = "electronic-circuit", amount = 200}
 		},
-		result = "sonic-train-r2",
+		results = {{type="item", name="sonic-train-r2", amount=1}},
 		category = "red-workshop-locomotive"
 	},
 	{--Sonic Train R3
 		type = "recipe",
 		name = "sonic-train-r3",
-		enabled = "false",
+		enabled = false,
 		ingredients = {
-			{"sonic-train-r2",5},
-			{"steel-plate",1000},
-			{"iron-plate",1000},
-			{"electronic-circuit",700}
+			{type = "item", name = "sonic-train-r2", amount = 5},
+			{type = "item", name = "steel-plate", amount = 1000},
+			{type = "item", name = "iron-plate", amount = 1000},
+			{type = "item", name = "electronic-circuit", amount = 700}
 		},
-		result = "sonic-train-r3",
+		results = {{type="item", name="sonic-train-r3", amount=1}},
 		category = "red-workshop-locomotive"
 	},
 	--FUEL
@@ -43,56 +51,56 @@ data:extend({
 		type = "recipe",
 		name = "giga-fuel",
 		category = "crafting-with-fluid",
-		enabled = "false",
+		enabled = false,
 		ingredients = {
-			{type="fluid", name="light-oil", amount=300},
-			{"coal",300}
+			{type = "fluid", name = "light-oil", amount = 300},
+			{type = "item", name = "coal", amount = 300}
 		},
-		result = "giga-fuel",
+		results = {{type="item", name="giga-fuel", amount=1}},
 		category = "red-enrichment-chamber"
 	},
 	{--Giga Fuel 2
 		type = "recipe",
 		name = "giga-fuel2",
 		category = "crafting-with-fluid",
-		enabled = "false",
+		enabled = false,
 		ingredients = {
-			{type="fluid", name="heavy-oil", amount=300},
-			{"coal",300}
+			{type = "fluid", name = "heavy-oil", amount = 300},
+			{type = "item", name = "coal", amount = 300}
 		},
-		result = "giga-fuel",
+		results = {{type="item", name="giga-fuel", amount=1}},
 		category = "red-enrichment-chamber"
 	},
 	{--Giga Fuel 3
 		type = "recipe",
 		name = "giga-fuel3",
-		enabled = "false",
+		enabled = false,
 		ingredients = {
-			{"solid-fuel",100}
+			{type = "item", name = "solid-fuel", amount = 100}
 		},
-		results = {{name = "giga-fuel", amount = 3}},
+		results = {{type = "item", name = "giga-fuel", amount = 3}},
 		category = "red-extreme-fuel"
 	},
 	{--Giga Fuel R2
 		type = "recipe",
 		name = "giga-fuel-r2",
-		enabled = "false",
+		enabled = false,
 		ingredients = {
-			{"giga-fuel",15},
-			{"solid-fuel",15}
+			{type = "item", name = "giga-fuel", amount = 15},
+			{type = "item", name = "solid-fuel", amount = 15}
 		},
-		results = {{name = "giga-fuel-r2", amount = 10}},
+		results = {{type = "item", name = "giga-fuel-r2", amount = 10}},
 		category = "red-extreme-fuel"
 	},
 	{--Giga Fuel R3
 		type = "recipe",
 		name = "giga-fuel-r3",
-		enabled = "false",
+		enabled = false,
 		ingredients = {
-			{"giga-fuel-r2",10},
-			{"uranium-fuel-cell",15}
+			{type = "item", name = "giga-fuel-r2", amount = 10},
+			{type = "item", name = "uranium-fuel-cell", amount = 15}
 		},
-		results = {{name = "giga-fuel-r3", amount = 4}},
+		results = {{type = "item", name = "giga-fuel-r3", amount = 4}},
 		category = "red-extreme-fuel"
 	},
 --ITEM
@@ -284,6 +292,7 @@ data:extend({
 		},
 	},
 	drive_over_tie_trigger = drive_over_tie(),
+    drive_over_tie_trigger_minimal_speed = 0.5,
 	tie_distance = 50,
 	vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
 	working_sound ={ sound = { filename = "__base__/sound/train-engine.ogg", volume = 0.5 }, match_speed_to_activity = true, },
@@ -410,6 +419,7 @@ data:extend({
 		},
 	},
 	drive_over_tie_trigger = drive_over_tie(),
+    drive_over_tie_trigger_minimal_speed = 0.5,
 	tie_distance = 50,
 	vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
 	working_sound ={sound ={filename = "__base__/sound/train-engine.ogg",volume = 0.5},match_speed_to_activity = true,},
@@ -549,6 +559,7 @@ data:extend({
 		},
 	},
 	drive_over_tie_trigger = drive_over_tie(),
+    drive_over_tie_trigger_minimal_speed = 0.5,
 	tie_distance = 50,
 	vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
 	working_sound ={sound ={filename = "__base__/sound/steam-engine-90bpm.ogg",volume = 0.7},match_speed_to_activity = true,},
