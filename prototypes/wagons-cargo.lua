@@ -6,66 +6,21 @@ local drive_over_tie = function()
   }
 end
 
+local standard_train_wheels =
+{
+  rotated = util.sprite_load("__base__/graphics/entity/train-wheel/train-wheel",
+    {
+      priority = "very-low",
+      direction_count = 256,
+      scale = 0.5,
+      shift = util.by_pixel(0, 8),
+      usage = "train"
+    }
+  )
+}
+
 data:extend({ 
 --ENTITY
-{--Cargo Wagon R1
-	type = "cargo-wagon",
-	name = "cargo-wagon-r1",
-	icon = "__RERailworld__/graphics/icons/wagon/cargo-wagon-r1.png",
-	icon_size = 32,
-	flags = {"placeable-neutral", "player-creation", "placeable-off-grid", },
-	inventory_size = 150,
-	minable = {mining_time = 1, result = "cargo-wagon-r1"},
-	mined_sound = {filename = "__core__/sound/deconstruct-medium.ogg"},
-	max_health = 1000,
-	corpse = "medium-remnants",
-	dying_explosion = "medium-explosion",
-	collision_box = {{-0.6, -2.4}, {0.6, 2.4}},
-	selection_box = {{-1.0, -2.7}, {1, 3.2}},		
-	connection_distance = 3, 
-	joint_distance = 4,
-	weight = 1500,
-	max_speed = 2.4,	--216 * 2.4 = 518,4 km/h
-	braking_force = 20,
-	friction_force = 0.25,
-	air_resistance = 0.00375,
-	energy_per_hit_point = 5,    
-	resistances = {
-		{type = "fire", decrease = 15, percent = 50 },
-		{type = "physical", decrease = 15, percent = 30 },
-		{type = "impact",decrease = 50,percent = 60},
-		{type = "explosion",decrease = 15,percent = 30},
-		{type = "acid",decrease = 10,percent = 20}
-	},
-	vertical_selection_shift = -0.5,
-	pictures = {
-		priority = "very-low",
-		width = 256,
-		height = 256,
-		back_equals_front = true,
-		direction_count = 64,
-		filename = "__RERailworld__/graphics/entity/wagon/cargo-wagon-r1.png",      
-		line_length = 8,
-		lines_per_file = 8,
-		shift = {0.42, -1.125}
-	},
-	wheels = standard_train_wheels,
-	rail_category = "regular",
-	drive_over_tie_trigger = drive_over_tie(),
-	tie_distance = 50,
-	working_sound = {
-		sound = {
-			filename = "__base__/sound/train-wheels.ogg",
-			volume = 0.5
-		},
-		match_volume_to_activity = true,
-	},
-	crash_trigger = crash_trigger(),
-	open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
-	close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
-	sound_minimum_speed = 0.5;
-	vehicle_impact_sound =  { filename = "__base__/sound/car-wood-impact.ogg", volume = 1.0 },
-},
 {--Cargo Wagon R2
 	type = "cargo-wagon",
 	name = "cargo-wagon-r2",
@@ -88,7 +43,7 @@ data:extend({
 	energy_per_hit_point = 5,    
 	resistances = { {type = "impact",decrease = 50,percent = 60},},
 	vertical_selection_shift = -0.5,
-	pictures = {
+	pictures = {rotated = { layers = {{
 		priority = "very-low",			
 		width = 512,
 		height = 512,
@@ -104,13 +59,12 @@ data:extend({
 		line_length = 4,
 		lines_per_file = 4,
 		shift = {0.42, -0.875}
-	},
+	}}}},
 	wheels = standard_train_wheels,
 	rail_category = "regular",
 	drive_over_tie_trigger = drive_over_tie(),
 	tie_distance = 50,
 	working_sound =	{ sound = { filename = "__base__/sound/train-wheels.ogg", volume = 0.5 }, match_volume_to_activity = true, },
-	crash_trigger = crash_trigger(),
 	open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
 	close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
 	sound_minimum_speed = 0.5;
@@ -136,7 +90,7 @@ data:extend({
 	max_speed = 40, braking_force = 500, friction_force = 0.0000001, air_resistance = 0.0000001,
 	vertical_selection_shift = -0.5,
 	energy_per_hit_point = 5,
-	pictures = {
+	pictures = {rotated = { layers = {{
 		priority = "very-low",
 		width = 256,
 		height = 256,
@@ -146,13 +100,12 @@ data:extend({
 		line_length = 8,
 		lines_per_file = 8,
 		shift = {0.42, -1.125}			
-	},
+	}}}},
 	wheels = standard_train_wheels,
 	rail_category = "regular",
 	drive_over_tie_trigger = drive_over_tie(),
 	tie_distance = 50,
 	working_sound = { sound = { filename = "__base__/sound/train-wheels.ogg", volume = 0.5 }, match_volume_to_activity = true, },
-	crash_trigger = crash_trigger(),
 	open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
 	close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
 	sound_minimum_speed = 0.5;
@@ -178,7 +131,7 @@ data:extend({
 	max_speed = 40, braking_force = 500, friction_force = 0.0000001, air_resistance = 0.0000001,
 	vertical_selection_shift = -0.5,
 	energy_per_hit_point = 5,
-	pictures = {
+	pictures = {rotated = { layers = {{
 		priority = "very-low",
 		width = 256,
 		height = 256,
@@ -188,13 +141,12 @@ data:extend({
 		line_length = 8,
 		lines_per_file = 8,
 		shift = {0.42, -1.125}			
-	},
+	}}}},
 	wheels = standard_train_wheels,
 	rail_category = "regular",
 	drive_over_tie_trigger = drive_over_tie(),
 	tie_distance = 50,
 	working_sound = { sound = { filename = "__base__/sound/train-wheels.ogg", volume = 0.5 }, match_volume_to_activity = true, },
-	crash_trigger = crash_trigger(),
 	open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
 	close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
 	sound_minimum_speed = 0.5;
@@ -218,7 +170,7 @@ data:extend({
 	energy_per_hit_point = 5,    
 	resistances = { {type = "impact",decrease = 50,percent = 60},},
 	vertical_selection_shift = -0.5,
-	pictures = {
+	pictures = {rotated = { layers = {{
 		priority = "very-low",
 		width = 256,
 		height = 256,
@@ -228,13 +180,12 @@ data:extend({
 		line_length = 8,
 		lines_per_file = 8,
 		shift = {0.42, -1.125}
-	},
+	}}}},
 	wheels = standard_train_wheels,
 	rail_category = "regular",
 	drive_over_tie_trigger = drive_over_tie(),
 	tie_distance = 50,
 	working_sound =	{ sound = { filename = "__base__/sound/train-wheels.ogg", volume = 0.5 }, match_volume_to_activity = true, },
-	crash_trigger = crash_trigger(),
 	open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
 	close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
 	sound_minimum_speed = 0.5;
@@ -259,7 +210,7 @@ data:extend({
 	max_speed = 40, braking_force = 500, friction_force = 0.0000001, air_resistance = 0.0000001,
 	vertical_selection_shift = -0.5,
 	energy_per_hit_point = 5,    
-	pictures = {
+	pictures = {rotated = { layers = {{
 		priority = "very-low",
 		width = 512, height = 512, scale = 0.5,
 		back_equals_front = true,
@@ -273,13 +224,12 @@ data:extend({
 		line_length = 4,
 		lines_per_file = 4,
 		shift = {0, -1.125}			
-	},
+	}}}},
 	wheels = standard_train_wheels,
 	rail_category = "regular",
 	drive_over_tie_trigger = drive_over_tie(),
 	tie_distance = 50,
 	working_sound = { sound = { filename = "__base__/sound/train-wheels.ogg", volume = 0.5 }, match_volume_to_activity = true, },
-	crash_trigger = crash_trigger(),
 	open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
 	close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
 	sound_minimum_speed = 0.5;
@@ -302,7 +252,7 @@ data:extend({
 	max_speed = 40, braking_force = 500, friction_force = 0.0000001, air_resistance = 0.0000001,
 	vertical_selection_shift = -0.5,
 	energy_per_hit_point = 5,
-	pictures = {
+	pictures = {rotated = { layers = {{
 		priority = "very-low",
 		width = 512, height = 512, scale = 0.5,
 		back_equals_front = true,
@@ -312,17 +262,16 @@ data:extend({
 			"__RERailworld__/graphics/entity/wagon/cargo-wagon-stone-r2-sheet-1.png",
 			"__RERailworld__/graphics/entity/wagon/cargo-wagon-stone-r2-sheet-2.png",
 			"__RERailworld__/graphics/entity/wagon/cargo-wagon-stone-r2-sheet-3.png",
-		},			
+		},
 		line_length = 4,
 		lines_per_file = 4,
 		shift = {0, -1.125}			
-	},
+	}}}},
 	wheels = standard_train_wheels,
 	rail_category = "regular",
 	drive_over_tie_trigger = drive_over_tie(),
 	tie_distance = 50,
 	working_sound = { sound = { filename = "__base__/sound/train-wheels.ogg", volume = 0.5 }, match_volume_to_activity = true, },
-	crash_trigger = crash_trigger(),
 	open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
 	close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
 	sound_minimum_speed = 0.5;
@@ -352,7 +301,7 @@ data:extend({
 		{type = "acid",decrease = 10,percent = 20}
 	},
 	vertical_selection_shift = -0.5,
-	pictures = {
+	pictures = {rotated = { layers = {{
 		priority = "very-low",
 		width = 512,
 		height = 512,
@@ -368,13 +317,12 @@ data:extend({
 		line_length = 4,
 		lines_per_file = 4,
 		shift = {0.42, -1.125}
-	},
+	}}}},
 	wheels = standard_train_wheels,
 	rail_category = "regular",
 	drive_over_tie_trigger = drive_over_tie(),
 	tie_distance = 50,
 	working_sound = { sound = { filename = "__base__/sound/train-wheels.ogg", volume = 0.5 }, match_volume_to_activity = true, },
-	crash_trigger = crash_trigger(),
 	open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
 	close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
 	sound_minimum_speed = 0.5;
@@ -404,7 +352,7 @@ data:extend({
 		{type = "acid",decrease = 10,percent = 20}
 	},
 	vertical_selection_shift = -0.5,
-	pictures = {
+	pictures = {rotated = { layers = {{
 		priority = "very-low",
 		width = 512,
 		height = 512,
@@ -420,31 +368,31 @@ data:extend({
 		line_length = 4,
 		lines_per_file = 4,
 		shift = {0.42, -1.125}
-	},
+	}}}},
 	wheels = standard_train_wheels,
 	rail_category = "regular",
 	drive_over_tie_trigger = drive_over_tie(),
 	tie_distance = 50,
 	working_sound = { sound = { filename = "__base__/sound/train-wheels.ogg", volume = 0.5 }, match_volume_to_activity = true, },
-	crash_trigger = crash_trigger(),
 	open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
 	close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
 	sound_minimum_speed = 0.5;
 	vehicle_impact_sound =  { filename = "__base__/sound/car-wood-impact.ogg", volume = 1.0 },
-},
+}
 })
 
+-- Railway R1
 local cwag_r1 = table.deepcopy(data.raw['recipe']['cargo-wagon'])
 cwag_r1.name = "cargo-wagon-r1"
 cwag_r1.enabled = false
 cwag_r1.ingredients = {
 	{type = "item", name = "cargo-wagon", amount = 1},
 	{type = "item", name = "iron-gear-wheel", amount = 5},
-	{type = "item", name = "copper-gear-wheel-r1", amount = 5},
+	--{type = "item", name = "copper-gear-wheel-r1", amount = 5},
 	{type = "item", name = "steel-plate", amount = 10}
 }
 cwag_r1.results = {{type="item", name="cargo-wagon-r1", amount=1}}
-cwag_r1.category = "red-workshop-wagon"
+cwag_r1.categories = {"red-workshop-wagon"}
 
 local cwag_r1_item = table.deepcopy(data.raw['item-with-entity-data']['cargo-wagon'])
 cwag_r1_item.name = "cargo-wagon-r1"
@@ -454,19 +402,50 @@ cwag_r1_item.subgroup = "re-wagons"
 cwag_r1_item.order = "d-a"
 cwag_r1_item.place_result = "cargo-wagon-r1"
 
-data:extend({cwag_r1,cwag_r1_item})
+local cwag_r1_entity = table.deepcopy(data.raw['cargo-wagon']['cargo-wagon'])
+cwag_r1_entity.name = "cargo-wagon-r1"
+cwag_r1_entity.icon = "__RERailworld__/graphics/icons/wagon/cargo-wagon-r1.png"
+cwag_r1_entity.icon_size = 32
+cwag_r1_entity.inventory_size = 150
+cwag_r1_entity.minable = {mining_time = 1, result = "cargo-wagon-r1"}
+cwag_r1_entity.max_health = 1000
+cwag_r1_entity.collision_box = {{-0.6, -2.4}, {0.6, 2.4}}
+cwag_r1_entity.selection_box = {{-1.0, -2.7}, {1, 3.2}}
+cwag_r1_entity.connection_distance = 3
+cwag_r1_entity.joint_distance = 4
+cwag_r1_entity.weight = 1500
+cwag_r1_entity.max_speed = 2.4	--216 * 2.4 = 518,4 km/h
+cwag_r1_entity.braking_force = 20
+cwag_r1_entity.friction_force = 0.25
+cwag_r1_entity.air_resistance = 0.00375
+cwag_r1_entity.energy_per_hit_point = 5
+cwag_r1_entity.vertical_selection_shift = -0.5
+cwag_r1_entity.pictures.rotated.layers = {{
+	priority = "very-low",
+	width = 256,
+	height = 256,
+	back_equals_front = true,
+	direction_count = 64,
+	filename = "__RERailworld__/graphics/entity/wagon/cargo-wagon-r1.png",      
+	line_length = 8,
+	lines_per_file = 8,
+	shift = {0.42, -1.125}
+}}
+cwag_r1_entity.rail_category = "regular"
+
+data:extend({cwag_r1,cwag_r1_item,cwag_r1_entity})
 --RAILWAY R2
 local cwag_r2 = table.deepcopy(data.raw['recipe']['cargo-wagon'])
 cwag_r2.name = "cargo-wagon-r2"
 cwag_r2.enabled = false
 cwag_r2.ingredients = {
-	{type = "item", name = "cargo-wagon-r1", amount = 1},
-	{type = "item", name = "electric-component-r1", amount = 5},
-	{type = "item", name = "cable-r1", amount = 5},
-	{type = "item", name = "reinforced-component-r1", amount = 5}
+	{type = "item", name = "cargo-wagon-r1", amount = 1}
+	--{type = "item", name = "electric-component-r1", amount = 5},
+	--{type = "item", name = "cable-r1", amount = 5},
+	--{type = "item", name = "reinforced-component-r1", amount = 5}
 }
 cwag_r2.results = {{type="item", name="cargo-wagon-r2", amount=1}}
-cwag_r2.category = "red-workshop-wagon"
+cwag_r2.categories = {"red-workshop-wagon"}
 
 local cwag_r2_item = table.deepcopy(data.raw['item-with-entity-data']['cargo-wagon'])
 cwag_r2_item.name = "cargo-wagon-r2"
@@ -484,12 +463,12 @@ local copwag_r1 = table.deepcopy(data.raw['recipe']['cargo-wagon'])
 copwag_r1.name = "cargo-wagon-copper-r1"
 copwag_r1.enabled = false
 copwag_r1.ingredients = {
-	{type = "item", name = "cargo-wagon-r2", amount = 1},
-	{type = "item", name = "reinforced-copper-plate-r1", amount = 20},
-	{type = "item", name = "reinforced-gear-copper-r1", amount = 5}
+	{type = "item", name = "cargo-wagon-r2", amount = 1}
+	--{type = "item", name = "reinforced-copper-plate-r1", amount = 20},
+	--{type = "item", name = "reinforced-gear-copper-r1", amount = 5}
 }
 copwag_r1.results = {{type="item", name="cargo-wagon-copper-r1", amount=1}}
-copwag_r1.category = "red-workshop-wagon"
+copwag_r1.categories = {"red-workshop-wagon"}
 
 local copwag_r1_item = table.deepcopy(data.raw['item-with-entity-data']['cargo-wagon'])
 copwag_r1_item.name = "cargo-wagon-copper-r1"
@@ -506,12 +485,12 @@ local ironwag_r1 = table.deepcopy(data.raw['recipe']['cargo-wagon'])
 ironwag_r1.name = "cargo-wagon-iron-r1"
 ironwag_r1.enabled = false
 ironwag_r1.ingredients = {
-	{type = "item", name = "cargo-wagon-r2", amount = 1},
-	{type = "item", name = "reinforced-iron-plate-r1", amount = 20},
-	{type = "item", name = "reinforced-gear-iron-r1", amount = 5}
+	{type = "item", name = "cargo-wagon-r2", amount = 1}
+	--{type = "item", name = "reinforced-iron-plate-r1", amount = 20},
+	--{type = "item", name = "reinforced-gear-iron-r1", amount = 5}
 }
 ironwag_r1.results = {{type="item", name="cargo-wagon-iron-r1", amount=1}}
-ironwag_r1.category = "red-workshop-wagon"
+ironwag_r1.categories = {"red-workshop-wagon"}
 
 local ironwag_r1_item = table.deepcopy(data.raw['item-with-entity-data']['cargo-wagon'])
 ironwag_r1_item.name = "cargo-wagon-iron-r1"
@@ -528,12 +507,12 @@ local coalwag_r1 = table.deepcopy(data.raw['recipe']['cargo-wagon'])
 coalwag_r1.name = "cargo-wagon-coal-r1"
 coalwag_r1.enabled = false
 coalwag_r1.ingredients = {
-	{type = "item", name = "cargo-wagon-r2", amount = 1},
-	{type = "item", name = "reinforced-coal-plate-r1", amount = 20},
-	{type = "item", name = "reinforced-component-r1", amount = 5}
+	{type = "item", name = "cargo-wagon-r2", amount = 1}
+	--{type = "item", name = "reinforced-coal-plate-r1", amount = 20},
+	--{type = "item", name = "reinforced-component-r1", amount = 5}
 }
 coalwag_r1.results = {{type="item", name="cargo-wagon-coal-r1", amount=1}}
-coalwag_r1.category = "red-workshop-wagon"
+coalwag_r1.categories = {"red-workshop-wagon"}
 
 local coalwag_r1_item = table.deepcopy(data.raw['item-with-entity-data']['cargo-wagon'])
 coalwag_r1_item.name = "cargo-wagon-coal-r1"
@@ -552,11 +531,11 @@ stonewag_r1.enabled = false
 stonewag_r1.ingredients = {
 	{type = "item", name = "cargo-wagon-r2", amount = 1},
 	{type = "item", name = "stone", amount = 50},
-	{type = "item", name = "reinforced-gear-iron-r1", amount = 5},
+	--{type = "item", name = "reinforced-gear-iron-r1", amount = 5},
 	{type = "item", name = "steel-plate", amount = 10}
 }
 stonewag_r1.results = {{type="item", name="cargo-wagon-stone-r1", amount=1}}
-stonewag_r1.category = "red-workshop-wagon"
+stonewag_r1.categories = {"red-workshop-wagon"}
 
 local stonewag_r1_item = table.deepcopy(data.raw['item-with-entity-data']['cargo-wagon'])
 stonewag_r1_item.name = "cargo-wagon-stone-r1"
@@ -575,11 +554,11 @@ stonewag_r2.enabled = false
 stonewag_r2.ingredients = {
 	{type = "item", name = "cargo-wagon-r2", amount = 1},
 	{type = "item", name = "stone", amount = 50},
-	{type = "item", name = "reinforced-gear-iron-r1", amount = 5},
+	--{type = "item", name = "reinforced-gear-iron-r1", amount = 5},
 	{type = "item", name = "steel-plate", amount = 10}
 }
 stonewag_r2.results = {{type="item", name="cargo-wagon-stone-r2", amount=1}}
-stonewag_r2.category = "red-workshop-wagon"
+stonewag_r2.categories = {"red-workshop-wagon"}
 
 local stonewag_r2_item = table.deepcopy(data.raw['item-with-entity-data']['cargo-wagon'])
 stonewag_r2_item.name = "cargo-wagon-stone-r2"
@@ -598,11 +577,11 @@ urawag_r1.enabled = false
 urawag_r1.ingredients = {
 	{type = "item", name = "cargo-wagon-r2", amount = 1},
 	{type = "item", name = "uranium-ore", amount = 50},
-	{type = "item", name = "reinforced-gear-iron-r1", amount = 5},
+	--{type = "item", name = "reinforced-gear-iron-r1", amount = 5},
 	{type = "item", name = "steel-plate", amount = 10}
 }
 urawag_r1.results = {{type="item", name="cargo-wagon-uranium-r1", amount=1}}
-urawag_r1.category = "red-workshop-wagon"
+urawag_r1.categories = {"red-workshop-wagon"}
 
 local urawag_r1_item = table.deepcopy(data.raw['item-with-entity-data']['cargo-wagon'])
 urawag_r1_item.name = "cargo-wagon-uranium-r1"
@@ -621,11 +600,11 @@ urawag_r2.enabled = false
 urawag_r2.ingredients = {
 	{type = "item", name = "cargo-wagon-r2", amount = 1},
 	{type = "item", name = "uranium-ore", amount = 50},
-	{type = "item", name = "reinforced-gear-iron-r1", amount = 5},
+	--{type = "item", name = "reinforced-gear-iron-r1", amount = 5},
 	{type = "item", name = "steel-plate", amount = 10}
 }
 urawag_r2.results = {{type="item", name="cargo-wagon-uranium-r2", amount=1}}
-urawag_r2.category = "red-workshop-wagon"
+urawag_r2.categories = {"red-workshop-wagon"}
 
 local urawag_r2_item = table.deepcopy(data.raw['item-with-entity-data']['cargo-wagon'])
 urawag_r2_item.name = "cargo-wagon-uranium-r2"
