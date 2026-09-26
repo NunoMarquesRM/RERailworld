@@ -18,7 +18,7 @@ data:extend({
 			{type = "item", name = "iron-plate", amount = 500}
 		},
 		results = {{type="item", name="sonic-train-r1", amount=1}},
-		category = "red-workshop-locomotive"
+		categories = {"red-workshop-locomotive"}
 	},
 	{--Sonic Train R2
 		type = "recipe",
@@ -31,7 +31,7 @@ data:extend({
 			{type = "item", name = "electronic-circuit", amount = 200}
 		},
 		results = {{type="item", name="sonic-train-r2", amount=1}},
-		category = "red-workshop-locomotive"
+		categories = {"red-workshop-locomotive"}
 	},
 	{--Sonic Train R3
 		type = "recipe",
@@ -44,32 +44,32 @@ data:extend({
 			{type = "item", name = "electronic-circuit", amount = 700}
 		},
 		results = {{type="item", name="sonic-train-r3", amount=1}},
-		category = "red-workshop-locomotive"
+		categories = {"red-workshop-locomotive"}
 	},
 	--FUEL
     {--Giga Fuel 1
 		type = "recipe",
 		name = "giga-fuel",
-		category = "crafting-with-fluid",
+		categories = {"crafting-with-fluid"},
 		enabled = false,
 		ingredients = {
 			{type = "fluid", name = "light-oil", amount = 300},
 			{type = "item", name = "coal", amount = 300}
 		},
 		results = {{type="item", name="giga-fuel", amount=1}},
-		category = "red-enrichment-chamber"
+		categories = {"red-enrichment-chamber"}
 	},
 	{--Giga Fuel 2
 		type = "recipe",
 		name = "giga-fuel2",
-		category = "crafting-with-fluid",
+		categories = {"crafting-with-fluid"},
 		enabled = false,
 		ingredients = {
 			{type = "fluid", name = "heavy-oil", amount = 300},
 			{type = "item", name = "coal", amount = 300}
 		},
 		results = {{type="item", name="giga-fuel", amount=1}},
-		category = "red-enrichment-chamber"
+		categories = {"red-enrichment-chamber"}
 	},
 	{--Giga Fuel 3
 		type = "recipe",
@@ -79,7 +79,7 @@ data:extend({
 			{type = "item", name = "solid-fuel", amount = 100}
 		},
 		results = {{type = "item", name = "giga-fuel", amount = 3}},
-		category = "red-extreme-fuel"
+		categories = {"red-extreme-fuel"}
 	},
 	{--Giga Fuel R2
 		type = "recipe",
@@ -90,7 +90,7 @@ data:extend({
 			{type = "item", name = "solid-fuel", amount = 15}
 		},
 		results = {{type = "item", name = "giga-fuel-r2", amount = 10}},
-		category = "red-extreme-fuel"
+		categories = {"red-extreme-fuel"}
 	},
 	{--Giga Fuel R3
 		type = "recipe",
@@ -101,7 +101,7 @@ data:extend({
 			{type = "item", name = "uranium-fuel-cell", amount = 15}
 		},
 		results = {{type = "item", name = "giga-fuel-r3", amount = 4}},
-		category = "red-extreme-fuel"
+		categories = {"red-extreme-fuel"}
 	},
 --ITEM
 	{--Sonic Train R1
@@ -140,7 +140,7 @@ data:extend({
 		name = "giga-fuel",
 		fuel_value = "2GJ",
 		fuel_acceleration_multiplier = 2.9,
-		fuel_category = "extreme-fuel-r1",
+		fuel_categories = {"extreme-fuel-r1"},
 		fuel_top_speed_multiplier = 2.3,
 		icon = "__RERailworld__/graphics/icons/sonicTrains/coke-r1.png",
 		icon_size = 32,
@@ -153,7 +153,7 @@ data:extend({
 		name = "giga-fuel-r2",
 		fuel_value = "40GJ",
 		fuel_acceleration_multiplier = 3.75,
-		fuel_category = "extreme-fuel-r1",
+		fuel_categories = {"extreme-fuel-r1"},
 		fuel_top_speed_multiplier = 3.5,
 		icon = "__RERailworld__/graphics/icons/sonicTrains/coke-r2.png",
 		icon_size = 32,
@@ -166,7 +166,7 @@ data:extend({
 		name = "giga-fuel-r3",
 		fuel_value = "550GJ",
 		fuel_acceleration_multiplier = 5.9,
-		fuel_category = "extreme-fuel-r1",
+		fuel_categories = {"extreme-fuel-r1"},
 		fuel_top_speed_multiplier = 5.95,
 		icon = "__RERailworld__/graphics/icons/sonicTrains/coke-r3.png",
 		icon_size = 32,
@@ -203,11 +203,12 @@ data:extend({
 		{type = "physical", decrease = 15, percent = 30 },
 		{type = "impact",decrease = 50,percent = 60},
 	},
-	burner = {
+	energy_source = {
+		type = "burner",
 		fuel_categories = {"nuclear","extreme-fuel-r1"},
 		effectivity = 1,
 		fuel_inventory_size = 1,
-		smoke = { {
+		smoke = {{
 			name = "train-smoke",
 			deviation = {0.3, 0.3},
 			frequency = 100,
@@ -218,7 +219,7 @@ data:extend({
 			height_deviation = 0.5,
 			starting_vertical_speed = 0.2,
 			starting_vertical_speed_deviation = 0.1,
-		} }
+		}}
 	},		
 	front_light = {
 		{
@@ -251,18 +252,20 @@ data:extend({
 		}
 	},
 	pictures = {
-		priority = "very-low",
-		width = 256,
-		height = 256,
-		direction_count = 128,
-		filenames = {
-			"__RERailworld__/graphics/entity/sonicTrains/sonic-train-r1-sheet-0.png",
-			"__RERailworld__/graphics/entity/sonicTrains/sonic-train-r1-sheet-1.png",
-		},
-		line_length = 8,
-		lines_per_file = 8,
-		shift = {0.2, -1.125}
-	},
+		rotated = {
+			layers = {{
+				priority = "very-low",
+				width = 256,
+				height = 256,
+				direction_count = 128,
+				filenames = {
+					"__RERailworld__/graphics/entity/sonicTrains/sonic-train-r1-sheet-0.png",
+					"__RERailworld__/graphics/entity/sonicTrains/sonic-train-r1-sheet-1.png",
+				},
+				line_length = 8,
+				lines_per_file = 8,
+				shift = {0.2, -1.125}
+	}}}},
 	wheels = standard_train_wheels,
 	rail_category = "regular",
 	stop_trigger = {
@@ -328,7 +331,8 @@ data:extend({
 		{type = "physical", decrease = 15, percent = 30 },
 		{type = "impact",decrease = 50,percent = 60},
 	},
-	burner ={
+	energy_source = {
+		type = "burner",
 		fuel_categories = {"nuclear","extreme-fuel-r1"},
 		effectivity = 1.4,
 		fuel_inventory_size = 1,
@@ -377,7 +381,7 @@ data:extend({
 			intensity = 1
 		}
 	},
-	pictures = {
+	pictures = {rotated = { layers = {{
 		priority = "very-low",
 		width = 256,
 		height = 256,
@@ -389,7 +393,7 @@ data:extend({
 		line_length = 8,
 		lines_per_file = 8,
 		shift = {0.42, -1.125}
-	},
+	}}}},
 	wheels = standard_train_wheels,
 	rail_category = "regular",
 	stop_trigger = {
@@ -455,7 +459,8 @@ data:extend({
 		{type = "physical", decrease = 15, percent = 30 },
 		{type = "impact",decrease = 50,percent = 60},
 	},
-	burner = {
+	energy_source = {
+		type = "burner",
 		fuel_categories = {"nuclear","extreme-fuel-r1"},
 		effectivity = 1.1,
 		fuel_inventory_size = 2,
@@ -504,7 +509,7 @@ data:extend({
 			intensity = 0.8
 		}
 	},
-	pictures = {
+	pictures = {rotated = { layers = {{
 		priority = "very-low",
 		width = 512,
 		height = 512,
@@ -523,7 +528,7 @@ data:extend({
 		line_length = 4,
 		lines_per_file = 4,
 		shift = {0, -1.125}
-	},
+	}}}},
 	wheels = standard_train_wheels,
 	rail_category = "regular",
 	stop_trigger = {

@@ -1,27 +1,27 @@
 --ELECTRIC TRAIN R1
 local elocr1_item = table.deepcopy(data.raw['item-with-entity-data']['locomotive'])
-elocr1_item.name = "locomotive-eletric-r1"
+elocr1_item.name = "et-electric-locomotive-1"
 elocr1_item.icon = "__RERailworld__/graphics/icons/eletric-train/eletric-r1.png"
 elocr1_item.icon_size = 32
 elocr1_item.subgroup = "re-eletricTrain"
 elocr1_item.order = "b-a"
-elocr1_item.place_result = "locomotive-eletric-r1"
+elocr1_item.place_result = "et-electric-locomotive-1"
 elocr1_item.stack_size = 4
 
 local elocr1_recipe = table.deepcopy(data.raw['recipe']['locomotive'])
-elocr1_recipe.name = "locomotive-eletric-r1"
+elocr1_recipe.name = "et-electric-locomotive-1"
 elocr1_recipe.energy_required = 2
 elocr1_recipe.ingredients = {
 	{type = "item", name = "electric-engine-unit", amount = 20},
 	{type = "item", name = "locomotive", amount = 2},
 	{type = "item", name = "battery", amount = 20}
 }
-elocr1_recipe.results = {{type="item", name="locomotive-eletric-r1", amount=1}}
-elocr1_recipe.category = "red-workshop-locomotive"
+elocr1_recipe.results = {{type="item", name="et-electric-locomotive-1", amount=1}}
+elocr1_recipe.categories = {"red-workshop-locomotive"}
 
 local elocr1 = table.deepcopy(data.raw['locomotive']['locomotive'])
-elocr1.name = "locomotive-eletric-r1"
-elocr1.minable.results = {{type="item", name="locomotive-eletric-r1", amount=1}}
+elocr1.name = "et-electric-locomotive-1"
+elocr1.minable.results = {{type="item", name="et-electric-locomotive-1", amount=1}}
 elocr1.max_health = 1500
 elocr1.max_speed = 2.4		--216*2.4 = 518.4
 elocr1.max_power = "1200kW"
@@ -29,13 +29,14 @@ elocr1.reversing_power_modifier = 1
 elocr1.braking_force = 20
 elocr1.friction_force = 0.25
 elocr1.air_resistance = 0.00375
-elocr1.burner =	{effectivity = 1, fuel_inventory_size = 0}
+elocr1.energy_source.fuel_inventory_size = 0
+elocr1.energy_source.fuel_categories = {"et-electric-fuel"}
 elocr1.collision_box = {{-0.6, -2.6}, {0.6, 2.6}}
 elocr1.selection_box = {{-1, -3}, {1, 3}}
 elocr1.drawing_box = {{-1, -4}, {1, 3}}
 elocr1.connection_distance = 3
 elocr1.joint_distance = 4
-elocr1.pictures = {
+elocr1.pictures.rotated.layers = {{
 	priority = "very-low",
 	width = 512, height = 512, scale = 0.5,
 	direction_count = 128,
@@ -52,35 +53,35 @@ elocr1.pictures = {
 	line_length = 4,
 	lines_per_file = 4,
 	shift = {0, -0.625}
-}
+}}
 
 data:extend({elocr1_item,elocr1_recipe,elocr1})
 
 --ELECTRIC TRAIN R2
 local elocr2_item = table.deepcopy(data.raw['item-with-entity-data']['locomotive'])
-elocr2_item.name = "locomotive-eletric-r2"
+elocr2_item.name = "et-electric-locomotive-2"
 elocr2_item.icon = "__RERailworld__/graphics/icons/eletric-train/eletric-r2.png"
 elocr2_item.icon_size = 32
 elocr2_item.subgroup = "re-eletricTrain"
 elocr2_item.order = "b-b"
-elocr2_item.place_results = {{type="item", name="locomotive-eletric-r2", amount=1}}
+elocr2_item.place_result = "et-electric-locomotive-2"
 elocr2_item.stack_size = 4
 
 local elocr2_recipe = table.deepcopy(data.raw['recipe']['locomotive'])
-elocr2_recipe.name = "locomotive-eletric-r2"
+elocr2_recipe.name = "et-electric-locomotive-2"
 elocr2_recipe.energy_required = 2
 elocr2_recipe.ingredients = {
 	{type = "item", name = "electric-engine-unit", amount = 10},
-	{type = "item", name = "locomotive-eletric-r1", amount = 4},
-	{type = "item", name = "electric-component-r1", amount = 10},
+	{type = "item", name = "et-electric-locomotive-1", amount = 4},
+	--{type = "item", name = "electric-component-r1", amount = 10},
 	{type = "item", name = "electronic-circuit", amount = 4}
 }
-elocr2_recipe.results = {{type="item", name="locomotive-eletric-r2", amount=1}}
-elocr2_recipe.category = "red-workshop-locomotive"
+elocr2_recipe.results = {{type="item", name="et-electric-locomotive-2", amount=1}}
+elocr2_recipe.categories = {"red-workshop-locomotive"}
 
 local elocr2 = table.deepcopy(data.raw['locomotive']['locomotive'])
-elocr2.name = "locomotive-eletric-r2"
-elocr2.minable.results = {{type="item", name="locomotive-eletric-r2", amount=1}}
+elocr2.name = "et-electric-locomotive-2"
+elocr2.minable.results = {{type="item", name="et-electric-locomotive-2", amount=1}}
 elocr2.max_health = 2000
 elocr2.max_speed = 5		--216 * 5 = 1080 km/h
 elocr2.max_power = "10MW"
@@ -88,13 +89,14 @@ elocr2.reversing_power_modifier = 1
 elocr2.braking_force = 75
 elocr2.friction_force = 0.15
 elocr2.air_resistance = 0.00375
-elocr2.burner =	{effectivity = 1, fuel_inventory_size = 0}
+elocr2.energy_source.fuel_inventory_size = 0
+elocr2.energy_source.fuel_categories = {"et-electric-fuel"}
 elocr2.collision_box = {{-0.6, -2.6}, {0.6, 2.6}}
 elocr2.selection_box = {{-1, -3}, {1, 3}}
 elocr2.drawing_box = {{-1, -4}, {1, 3}}
 elocr2.connection_distance = 3
 elocr2.joint_distance = 4
-elocr2.pictures = {
+elocr2.pictures.rotated.layers = {{
 	priority = "very-low",
 	width = 512, height = 512, scale = 0.5,
 	direction_count = 128,
@@ -111,33 +113,33 @@ elocr2.pictures = {
 	line_length = 4,
 	lines_per_file = 4,
 	shift = {0, -0.625}
-}
+}}
 
 data:extend({elocr2_item,elocr2_recipe,elocr2})
 --ELECTRIC TRAIN R3
 local elocr3_item = table.deepcopy(data.raw['item-with-entity-data']['locomotive'])
-elocr3_item.name = "locomotive-eletric-r3"
+elocr3_item.name = "et-electric-locomotive-3"
 elocr3_item.icon = "__RERailworld__/graphics/icons/eletric-train/eletric-r3.png"
 elocr3_item.icon_size = 32
 elocr3_item.subgroup = "re-eletricTrain"
 elocr3_item.order = "b-c"
-elocr3_item.place_results = {{type="item", name="locomotive-eletric-r3", amount=1}}
+elocr3_item.place_result = "et-electric-locomotive-3"
 elocr3_item.stack_size = 4
 
 local elocr3_recipe = table.deepcopy(data.raw['recipe']['locomotive'])
-elocr3_recipe.name = "locomotive-eletric-r3"
+elocr3_recipe.name = "et-electric-locomotive-3"
 elocr3_recipe.energy_required = 2
 elocr3_recipe.ingredients = {
 	{type = "item", name = "electric-engine-unit", amount = 2},
-	{type = "item", name = "locomotive-eletric-r2", amount = 4},
+	{type = "item", name = "et-electric-locomotive-2", amount = 4},
 	{type = "item", name = "electronic-circuit", amount = 4}
 }
-elocr3_recipe.results = {{type="item", name="locomotive-eletric-r3", amount=1}}
-elocr3_recipe.category = "red-workshop-locomotive"
+elocr3_recipe.results = {{type="item", name="et-electric-locomotive-3", amount=1}}
+elocr3_recipe.categories = {"red-workshop-locomotive"}
 
 local elocr3 = table.deepcopy(data.raw['locomotive']['locomotive'])
-elocr3.name = "locomotive-eletric-r3"
-elocr3.minable.results = {{type="item", name="locomotive-eletric-r3", amount=1}}
+elocr3.name = "et-electric-locomotive-3"
+elocr3.minable.results = {{type="item", name="et-electric-locomotive-3", amount=1}}
 elocr3.max_health = 3500
 elocr3.max_speed = 40			--216*40 = 8640 km/h
 elocr3.max_power = "50MW"
@@ -145,13 +147,14 @@ elocr3.reversing_power_modifier = 1
 elocr3.braking_force = 500
 elocr3.friction_force = 0.0000001
 elocr3.air_resistance = 0.0000001
-elocr3.burner =	{effectivity = 2, fuel_inventory_size = 0}
+elocr3.energy_source.fuel_inventory_size = 0
+elocr3.energy_source.fuel_categories = {"et-electric-fuel"}
 elocr3.collision_box = {{-0.6, -2.6}, {0.6, 2.6}}
 elocr3.selection_box = {{-1, -3}, {1, 3}}
 elocr3.drawing_box = {{-1, -4}, {1, 3}}
 elocr3.connection_distance = 3
 elocr3.joint_distance = 4
-elocr3.pictures = {
+elocr3.pictures.rotated = {
 	priority = "very-low",
 	width = 512, height = 512, scale = 0.5,
 	direction_count = 128,
@@ -186,7 +189,7 @@ elocr3.pictures = {
 		},
 		{
 			priority = "very-low",
-			flags = {"compressed"},
+			flags = {"shadow"},
 			width = 256,
 			height = 256,
 			direction_count = 128,
@@ -203,29 +206,34 @@ elocr3.pictures = {
 }
 data:extend({elocr3_item,elocr3_recipe,elocr3})
 
+
+
+
+
+
 local ppro_item = table.deepcopy(data.raw['item']['accumulator'])
-ppro_item.name = "eletric-provider"
+ppro_item.name = "et-control-station-1"
 ppro_item.icon = "__RERailworld__/graphics/icons/eletric-train/provider.png"
 ppro_item.icon_size = 32
 ppro_item.subgroup = "re-workshop"
 ppro_item.order = "a-a"
-ppro_item.place_result = "eletric-provider"
+ppro_item.place_result = "et-control-station-1"
 
 local ppro_recipe = table.deepcopy(data.raw['recipe']['accumulator'])
-ppro_recipe.name = "eletric-provider"
+ppro_recipe.name = "et-control-station-1"
 ppro_recipe.ingredients = {
 	{type = "item", name = "accumulator", amount = 2},
 	{type = "item", name = "advanced-circuit", amount = 1}
 }
-ppro_recipe.results = {{type="item", name="eletric-provider", amount=1}}
+ppro_recipe.results = {{type="item", name="et-control-station-1", amount=1}}
 
-data:extend({ppro_item,ppro_recipe,})
+data:extend({ppro_item,ppro_recipe})
 
 local provider = table.deepcopy(data.raw['electric-energy-interface']['electric-energy-interface'])	
-provider.name = "eletric-provider"
+provider.name = "et-control-station-1"
 provider.icon = "__RERailworld__/graphics/icons/eletric-train/provider.png"
 provider.icon_size = 32
-provider.minable.results = {{type="item", name="eletric-provider", amount=1}}
+provider.minable.results = {{type="item", name="et-control-station-1", amount=1}}
 provider.enable_gui = false
 provider.allow_copy_paste = false
 provider.energy_source = {
@@ -254,9 +262,60 @@ provider.selection_box = {{-1.5,-1.5},{1.5,1.5}}
 data:extend({provider})
 
 local fuel = table.deepcopy(data.raw['item']['wood'])
-fuel.name = "eletric-fuel"
---fuel.flags = {"hidden"}
---fuel.flags = {"placeable-neutral", "placeable-off-grid", "breaths-air"}
+fuel.name = "et-electric-locomotive-fuel"
 fuel.fuel_value = "10GJ"
+fuel.fuel_categories = {"et-electric-fuel"}
 	
 data:extend({fuel})
+
+local function CreateTrainInterface(train)
+    data:extend({
+        {
+            type = "electric-energy-interface",
+            name = train.name .. "-power",
+
+            icon = train.icon,
+            icon_size = train.icon_size or 64,
+
+            flags = {
+                "placeable-off-grid",
+                "not-blueprintable",
+                "not-deconstructable",
+                "not-on-map"
+            },
+
+            selectable_in_game = false,
+
+            collision_box = {{0, 0}, {0, 0}},
+            selection_box = {{0, 0}, {0, 0}},
+
+            energy_source = {
+                type = "electric",
+
+                -- Amount of energy that can be stored.
+                buffer_capacity = "100MJ",
+
+                -- Maximum electrical input.
+                -- This uses the locomotive's actual max power.
+                input_flow_limit = train.max_power,
+
+                output_flow_limit = "0W",
+                usage_priority = "secondary-input"
+            },
+
+            energy_production = "0W",
+            energy_usage = "0W",
+
+            picture = {
+                filename = "__core__/graphics/empty.png",
+                priority = "extra-high",
+                width = 1,
+                height = 1
+            }
+        }
+    })
+end
+
+CreateTrainInterface(data.raw["locomotive"]["et-electric-locomotive-1"])
+CreateTrainInterface(data.raw["locomotive"]["et-electric-locomotive-2"])
+CreateTrainInterface(data.raw["locomotive"]["et-electric-locomotive-3"])
