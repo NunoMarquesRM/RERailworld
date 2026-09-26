@@ -24,7 +24,7 @@ elocr1.name = "et-electric-locomotive-1"
 elocr1.minable.results = {{type="item", name="et-electric-locomotive-1", amount=1}}
 elocr1.max_health = 1500
 elocr1.max_speed = 2.4		--216*2.4 = 518.4
-elocr1.max_power = "1200kW"
+elocr1.max_power = "5000kW"
 elocr1.reversing_power_modifier = 1
 elocr1.braking_force = 20
 elocr1.friction_force = 0.25
@@ -238,14 +238,14 @@ provider.enable_gui = false
 provider.allow_copy_paste = false
 provider.energy_source = {
 	type = "electric",
-	buffer_capacity = "2000kJ",
+	buffer_capacity = "500MJ",
 	usage_priority = "secondary-input",
-	input_flow_limit = "2100kW",
+	input_flow_limit = "250MW",
 	output_flow_limit = "0kW"
 }
 provider.energy_production = "0kW"
-provider.energy_usage = "100kW"
-provider.drain = "200kW"
+provider.energy_usage = "1000kW"
+provider.drain = "5000kW"
 provider.picture = {
 	filename = "__RERailworld__/graphics/entity/eletric-train/provider.png",
 	width = 256, 
@@ -263,59 +263,78 @@ data:extend({provider})
 
 local fuel = table.deepcopy(data.raw['item']['wood'])
 fuel.name = "et-electric-locomotive-fuel"
-fuel.fuel_value = "10GJ"
+fuel.fuel_value = "200kJ"
 fuel.fuel_categories = {"et-electric-fuel"}
+fuel.hidden = true
+fuel.stack_size = 1
 	
 data:extend({fuel})
 
-local function CreateTrainInterface(train)
-    data:extend({
-        {
-            type = "electric-energy-interface",
-            name = train.name .. "-power",
+function format_number(number_string)
+	local number = number_string:match('%d+%.?%d*')
+	local append_suffix = number_string:match('%a+')
+	
+	local pre = ""
+	local typ = ""
+	
+	if append_suffix:len() == 2 then
+		pre =  append_suffix:sub(1, 1):upper()
+		typ =  append_suffix:sub(2):upper()
+	elseif append_suffix:len() == 1 then
+		typ = append_suffix:upper()
+	end
 
-            icon = train.icon,
-            icon_size = train.icon_size or 64,
-
-            flags = {
-                "placeable-off-grid",
-                "not-blueprintable",
-                "not-deconstructable",
-                "not-on-map"
-            },
-
-            selectable_in_game = false,
-
-            collision_box = {{0, 0}, {0, 0}},
-            selection_box = {{0, 0}, {0, 0}},
-
-            energy_source = {
-                type = "electric",
-
-                -- Amount of energy that can be stored.
-                buffer_capacity = "100MJ",
-
-                -- Maximum electrical input.
-                -- This uses the locomotive's actual max power.
-                input_flow_limit = train.max_power,
-
-                output_flow_limit = "0W",
-                usage_priority = "secondary-input"
-            },
-
-            energy_production = "0W",
-            energy_usage = "0W",
-
-            picture = {
-                filename = "__core__/graphics/empty.png",
-                priority = "extra-high",
-                width = 1,
-                height = 1
-            }
-        }
-    })
+	
+	if pre == "K" then
+		number = number * 1000
+	elseif pre == "M" then
+		number = number * 1000000
+	end
+		
+	if typ == "W" then
+		number = number / 60
+	end
+	return number
 end
 
-CreateTrainInterface(data.raw["locomotive"]["et-electric-locomotive-1"])
-CreateTrainInterface(data.raw["locomotive"]["et-electric-locomotive-2"])
-CreateTrainInterface(data.raw["locomotive"]["et-electric-locomotive-3"])
+function CreateTrainInterface(train)
+	local power = format_number(train.max_power)	
+	local energy = power * 1.1
+
+	data:extend(
+	{
+		{
+			type = "electric-energy-interface",
+			name = train.name .. "-power",
+			icon = train.icon,
+			icon_size = 32,
+			localised_name = {"entity-name." .. train.name},
+			collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
+			selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
+			selectable_in_game = false,
+			energy_source = {
+				type = "electric",
+				--buffer_capacity = (energy * 2) .. "J",
+				buffer_capacity = "500MJ",
+				usage_priority = "secondary-input",
+				--input_flow_limit = energy .. "J" ,
+				input_flow_limit = train.max_power,
+				--drain = power / 10 .. "J" ,
+				drain = "0W",
+				render_no_network_icon = true,
+				render_no_power_icon = true
+			},
+			picture = {
+				filename = "__core__/graphics/empty.png",
+				priority = "extra-high",
+				width = 1,
+				height = 1
+			},
+			order = "z"
+		}
+	})
+end
+
+CreateTrainInterface(data.raw['locomotive']['et-electric-locomotive-1'])	
+CreateTrainInterface(data.raw['locomotive']['et-electric-locomotive-2'])
+CreateTrainInterface(data.raw['locomotive']['et-electric-locomotive-3'])
