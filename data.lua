@@ -1,3 +1,6 @@
+-- Functions
+require("prototypes.Railworld-Control")
+
 require("prototypes.Machinery-Trains")
 require("prototypes.Eletric-Train")
 require("prototypes.Sonic-Train")

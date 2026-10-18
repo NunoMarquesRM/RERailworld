@@ -1,23 +1,4 @@
-local drive_over_tie = function()
-  return {
-    type = "play-sound",
-    sound = sound_variations("__base__/sound/train-tie", 6, 0.4, { volume_multiplier("main-menu", 2.4), volume_multiplier("driving", 1.3) } )
-  }
-end
-
-local standard_train_wheels = {
-  rotated = util.sprite_load("__base__/graphics/entity/train-wheel/train-wheel",
-    {
-      priority = "very-low",
-      direction_count = 256,
-      scale = 0.5,
-      shift = util.by_pixel(0, 8),
-      usage = "train"
-    }
-  )
-}
-
-data:extend({ 
+data:extend({
 --ENTITY
 {--Cargo Wagon R2
     type = "cargo-wagon",
@@ -28,17 +9,19 @@ data:extend({
     inventory_size = 250,
     minable = {mining_time = 1, result = "cargo-wagon-r2"},
     mined_sound = {filename = "__core__/sound/deconstruct-medium.ogg"},
-    max_health = 2000, corpse = "medium-remnants", dying_explosion = "medium-explosion",
+    max_health = 2000,
+    corpse = "medium-remnants",
+    dying_explosion = "medium-explosion",
     collision_box = {{-0.6, -2.4}, {0.6, 2.4}},
     selection_box = {{-1.0, -2.7}, {1, 3.2}},
-    connection_distance = 3, 
+    connection_distance = 3,
     joint_distance = 4,
     weight = 2000,
     max_speed = 40 ,    --216*40 = 8640 km/h
-    braking_force = 500, 
-    friction_force = 0.0000001, 
+    braking_force = 500,
+    friction_force = 0.0000001,
     air_resistance = 0.0000001,
-    energy_per_hit_point = 5,    
+    energy_per_hit_point = 5,
     resistances = { {type = "impact",decrease = 50,percent = 60},},
     vertical_selection_shift = -0.5,
     pictures = {rotated = { layers = {{
@@ -400,7 +383,7 @@ cwag_r1_item.subgroup = "re-wagons"
 cwag_r1_item.order = "d-a"
 cwag_r1_item.place_result = "cargo-wagon-r1"
 
-local cwag_r1_entity = table.deepcopy(data.raw['cargo-wagon']['cargo-wagon'])
+local cwag_r1_entity = table.deepcopy(data.raw['cargo-wagon']['cargo-wagon-r2'])
 cwag_r1_entity.name = "cargo-wagon-r1"
 cwag_r1_entity.icon = "__RERailworld__/graphics/icons/wagon/cargo-wagon-r1.png"
 cwag_r1_entity.icon_size = 32

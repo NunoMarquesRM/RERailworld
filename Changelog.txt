@@ -1,0 +1,17 @@
+---------------------------------------------------------------------------------------------------
+Version: 2.0.1
+Date: 18.10.2026
+  Optimizations:
+    - Created control file for Railworld: functions for sounds, items and recipes
+  Bugfixes:
+    - Fixed a visual bug with the Cargo Wagon R1 when stationary.
+---------------------------------------------------------------------------------------------------
+Version: 2.0.0
+Date: 26.09.2026
+  Changes:
+    - Full compatibility with Factorio v >= 2.0
+---------------------------------------------------------------------------------------------------
+Version: 0.2.0
+Date: 22.01.2021
+  Modpack created
+---------------------------------------------------------------------------------------------------
