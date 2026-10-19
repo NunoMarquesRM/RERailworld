@@ -1,4 +1,21 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.0.3
+Date: 19.10.2026
+  Changes:
+    - Increased the min consumption for Eletric Train Provider to 10MW
+    - Buffer capacity for Eletric Train Provider to 666MW (because this is the devil's work)
+    - Increased the inventory size from 250 to 260 for: Iron, Copper, Coal, Stone and Uranium Wagon
+    - Added missing flag 'not-on-map' to the cargo/fluid wagons
+    - Recipe for Eletric Train Provider: added battery (100) and accumulator (2->5)
+    - Recipe for Eletric Train R1: battery (20->25) and eletric engine unit (20->10)
+    - Recipe for Eletric Train R2: removed eletronic circuit
+    - Recipe for Eletric Train R3: removed eletronic circuit/eletric engine unit and added
+      processing unit
+    - Recipe for Sonic Train R2: decreased steel plate/iron plate (500->250) and electronic circuit
+      (200->100)
+    - Recipe for Sonic Train R3: decreased steel plate/iron plate (1000->500) and electronic
+      circuit (700->300)
+---------------------------------------------------------------------------------------------------
 Version: 2.0.2
 Date: 19.10.2026
   Optimizations:

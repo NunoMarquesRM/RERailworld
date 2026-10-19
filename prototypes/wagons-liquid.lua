@@ -30,7 +30,7 @@ data:extend({
     name = "fluid-wagon-r1",
     icon = "__RERailworld__/graphics/icons/wagon/liquid-wagon-r1.png",
     icon_size = 32,
-    flags = {"placeable-neutral", "player-creation", "placeable-off-grid", },
+    flags = {"placeable-neutral", "player-creation", "placeable-off-grid", "not-on-map"},
     capacity = 150000, --150k
     minable = {mining_time = 1, result = "fluid-wagon-r1"},
     mined_sound = {filename = "__core__/sound/deconstruct-medium.ogg"},
@@ -125,7 +125,7 @@ data:extend({
     name = "fluid-wagon-r2",
     icon = "__RERailworld__/graphics/icons/wagon/liquid-wagon-r2.png",
     icon_size = 32,
-    flags = {"placeable-neutral", "player-creation", "placeable-off-grid", },
+    flags = {"placeable-neutral", "player-creation", "placeable-off-grid", "not-on-map"},
     minable = {mining_time = 1, result = "fluid-wagon-r2"},
     mined_sound = {filename = "__core__/sound/deconstruct-medium.ogg"},
     max_health = 2000,

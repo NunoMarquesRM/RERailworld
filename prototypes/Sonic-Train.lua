@@ -25,9 +25,9 @@ data:extend({
     create_recipe("sonic-train-r2", 1, false,
         {
             {type = "item", name = "sonic-train-r1", amount = 3},
-            {type = "item", name = "steel-plate", amount = 500},
-            {type = "item", name = "iron-plate", amount = 500},
-            {type = "item", name = "electronic-circuit", amount = 200}
+            {type = "item", name = "steel-plate", amount = 250},
+            {type = "item", name = "iron-plate", amount = 250},
+            {type = "item", name = "electronic-circuit", amount = 100}
         },
         {{type = "item", name = "sonic-train-r2", amount = 1}},
         {"red-workshop-locomotive"}
@@ -35,9 +35,9 @@ data:extend({
     create_recipe("sonic-train-r3", 1, false,
         {
             {type = "item", name = "sonic-train-r2", amount = 5},
-            {type = "item", name = "steel-plate", amount = 1000},
-            {type = "item", name = "iron-plate", amount = 1000},
-            {type = "item", name = "electronic-circuit", amount = 700}
+            {type = "item", name = "steel-plate", amount = 500},
+            {type = "item", name = "iron-plate", amount = 500},
+            {type = "item", name = "electronic-circuit", amount = 300}
         },
         {{type = "item", name = "sonic-train-r3", amount = 1}},
         {"red-workshop-locomotive"}
@@ -97,7 +97,7 @@ data:extend({
         collision_box = {{-0.6, -2.6}, {0.6, 2.6}},
         selection_box = {{-1, -3}, {1, 3}},
         drawing_box = {{-1, -4}, {1, 3}},
-        connection_distance = 3, joint_distance = 4,        
+        connection_distance = 3, joint_distance = 4,
         weight = 2000,
         max_speed = 8,    --216*8 = 1728 km/h
         max_power = "9000kW",
@@ -207,8 +207,8 @@ data:extend({
         drive_over_tie_trigger = drive_over_tie(),
         drive_over_tie_trigger_minimal_speed = 0.5,
         tie_distance = 50,
-        vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
-        working_sound ={ sound = { filename = "__base__/sound/train-engine.ogg", volume = 0.5 }, match_speed_to_activity = true, },
+        vehicle_impact_sound = { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
+        working_sound = { sound = { filename = "__base__/sound/train-engine.ogg", volume = 0.5 }, match_speed_to_activity = true, },
         open_sound = { filename = "__base__/sound/car-door-open.ogg", volume=0.7 },
         close_sound = { filename = "__base__/sound/car-door-close.ogg", volume = 0.7 },
         sound_minimum_speed = 0.2
@@ -344,7 +344,7 @@ data:extend({
         name = "sonic-train-r3",
         icon = "__RERailworld__/graphics/icons/sonicTrains/sonic-train-r3.png",
         icon_size = 32,
-        flags = {"placeable-neutral", "placeable-off-grid", },
+        flags = {"placeable-neutral", "placeable-off-grid", "not-on-map"},
         minable = {mining_time = 1, result = "sonic-train-r3"},
         mined_sound = {filename = "__core__/sound/deconstruct-medium.ogg"},
         max_health = 3500,

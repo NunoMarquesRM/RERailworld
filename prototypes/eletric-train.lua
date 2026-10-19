@@ -13,9 +13,9 @@ data:extend({
 
     create_recipe("et-electric-locomotive-1", 2, false,
         {
-            {type = "item", name = "electric-engine-unit", amount = 20},
+            {type = "item", name = "electric-engine-unit", amount = 10},
             {type = "item", name = "locomotive", amount = 2},
-            {type = "item", name = "battery", amount = 20}
+            {type = "item", name = "battery", amount = 25}
         },
         {{type = "item", name = "et-electric-locomotive-1", amount = 1}},
         {"red-workshop-locomotive"}
@@ -24,25 +24,24 @@ data:extend({
         {
             {type = "item", name = "electric-engine-unit", amount = 10},
             {type = "item", name = "et-electric-locomotive-1", amount = 4},
-            {type = "item", name = "electric-component-r1", amount = 10},
-            {type = "item", name = "electronic-circuit", amount = 4}
+            {type = "item", name = "electric-component-r1", amount = 10}
         },
         {{type = "item", name = "et-electric-locomotive-2", amount = 1}},
         {"red-workshop-locomotive"}
     ),
     create_recipe("et-electric-locomotive-3", 2, false,
         {
-            {type = "item", name = "electric-engine-unit", amount = 2},
             {type = "item", name = "et-electric-locomotive-2", amount = 4},
-            {type = "item", name = "electronic-circuit", amount = 4}
+            {type = "item", name = "processing-unit", amount = 10}
         },
         {{type = "item", name = "et-electric-locomotive-3", amount = 1}},
         {"red-workshop-locomotive"}
     ),
     create_recipe("et-control-station-1", 1, false,
         {
-            {type = "item", name = "accumulator", amount = 2},
-            {type = "item", name = "advanced-circuit", amount = 1}
+            {type = "item", name = "accumulator", amount = 5},
+            {type = "item", name = "advanced-circuit", amount = 1},
+            {type = "item", name = "battery", amount = 100}
         },
         {{type = "item", name = "et-control-station-1", amount = 1}}
     ),
@@ -199,14 +198,14 @@ provider.enable_gui = false
 provider.allow_copy_paste = false
 provider.energy_source = {
     type = "electric",
-    buffer_capacity = "500MJ",
+    buffer_capacity = "666MJ",
+    drain = "10MW",
     usage_priority = "secondary-input",
     input_flow_limit = "250MW",
     output_flow_limit = "0kW"
 }
 provider.energy_production = "0kW"
-provider.energy_usage = "1000kW"
-provider.drain = "5000kW"
+provider.energy_usage = "50MW"
 provider.picture = {
     filename = "__RERailworld__/graphics/entity/eletric-train/provider.png",
     width = 256, 
@@ -228,7 +227,7 @@ fuel.fuel_value = "200kJ"
 fuel.fuel_categories = {"et-electric-fuel"}
 fuel.hidden = true
 fuel.stack_size = 1
-    
+
 data:extend({fuel})
 
 function format_number(number_string)

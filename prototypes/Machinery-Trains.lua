@@ -16,7 +16,7 @@ data:extend({
             {type = "item", name = "reinforced-copper-plate-r1", amount = 5},
             {type = "item", name = "electric-component-r1", amount = 10},
             {type = "item", name = "cable-r1", amount = 10},
-            {type = "item", name = "half-assembler-r1", amount = 2}
+            {type = "item", name = "assembler-r1", amount = 2}
         },
         {{type = "item", name = "workshop-loco-r1", amount = 1}}
     ),
@@ -48,13 +48,13 @@ data:extend({
         icon = "__RERailworld__/graphics/icons/machinery/workshop-loco.png",
         icon_size = 32,
         flags = {"placeable-neutral","placeable-player", "player-creation"},
-        minable = {hardness = 0.2, mining_time = 0.5, result = "workshop-loco-r1"},
+        minable = {mining_time = 0.2, result = "workshop-loco-r1"},
         max_health = 750,
         corpse = "big-remnants",
         resistances = {{type = "physical",percent = 60},},
         collision_box = {{-2.7, -2.7}, {2.7, 2.7}},
         selection_box = {{-3.0, -3.0}, {3.0, 3.0}},
-        graphics_set = { animation = {            
+        graphics_set = { animation = {
             filename = "__RERailworld__/graphics/entity/machinery/workshop-loco.png",
             width = 224,
             height = 224,
@@ -68,9 +68,8 @@ data:extend({
         crafting_speed = 0.5,
         energy_source = {
             type = "electric",
-            input_priority = "secondary",
             usage_priority = "secondary-input",
-            emissions = 0.04,
+            emissions_per_minute = { pollution = 10 }
         },
         module_specification = {
             module_slots = 1
@@ -85,7 +84,7 @@ data:extend({
         icon = "__RERailworld__/graphics/icons/machinery/workshop-wagon.png",
         icon_size = 32,
         flags = {"placeable-neutral","placeable-player", "player-creation"},
-        minable = {hardness = 0.2, mining_time = 0.5, result = "workshop-wagon-r1"},
+        minable = {mining_time = 0.2, result = "workshop-wagon-r1"},
         max_health = 750,
         corpse = "big-remnants",
         resistances = {{type = "physical",percent = 60},},
@@ -106,9 +105,8 @@ data:extend({
         crafting_speed = 0.5,
         energy_source = {
             type = "electric",
-            input_priority = "secondary",
             usage_priority = "secondary-input",
-            emissions = 0.04
+            emissions_per_minute = { pollution = 10 }
         },
         module_specification = {
             module_slots = 1
@@ -123,7 +121,7 @@ data:extend({
         icon = "__RERailworld__/graphics/icons/machinery/workshop-giga-fuel.png",
         icon_size = 32,
         flags = {"placeable-neutral","placeable-player", "player-creation"},
-        minable = {hardness = 0.2, mining_time = 0.5, result = "workshop-giga-r1"},
+        minable = {mining_time = 0.2, result = "workshop-giga-r1"},
         max_health = 500,
         corpse = "big-remnants",
         resistances = {{type = "physical",percent = 60},},
@@ -145,9 +143,8 @@ data:extend({
         crafting_speed = 1,
         energy_source = {
             type = "electric",
-            input_priority = "secondary",
             usage_priority = "secondary-input",
-            emissions = 0.04
+            emissions_per_minute = { pollution = 10 }
         },
         module_specification = {
             module_slots = 1
