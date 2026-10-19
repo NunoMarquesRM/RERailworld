@@ -1,24 +1,54 @@
+data:extend({
+    -- Electric Train R1 to R3
+    create_item("et-electric-locomotive-1", "eletric-train/eletric-r1", 32,
+        "re-eletricTrain", "b-a", 4, sounds["electric-large-pickup"], sounds["electric-large-drop"]),
+    create_item("et-electric-locomotive-2", "eletric-train/eletric-r2", 32,
+        "re-eletricTrain", "b-b", 4, sounds["electric-large-pickup"], sounds["electric-large-drop"]),
+    create_item("et-electric-locomotive-3", "eletric-train/eletric-r3", 32,
+        "re-eletricTrain", "b-c", 4, sounds["electric-large-pickup"], sounds["electric-large-drop"]),
+
+    -- Electric Provider
+    create_item("et-control-station-1", "eletric-train/provider", 32,
+        "re-workshop", "a-a", 4, sounds["electric-large-pickup"], sounds["electric-large-drop"]),
+
+    create_recipe("et-electric-locomotive-1", 2, false,
+        {
+            {type = "item", name = "electric-engine-unit", amount = 20},
+            {type = "item", name = "locomotive", amount = 2},
+            {type = "item", name = "battery", amount = 20}
+        },
+        {{type = "item", name = "et-electric-locomotive-1", amount = 1}},
+        {"red-workshop-locomotive"}
+    ),
+    create_recipe("et-electric-locomotive-2", 2, false,
+        {
+            {type = "item", name = "electric-engine-unit", amount = 10},
+            {type = "item", name = "et-electric-locomotive-1", amount = 4},
+            {type = "item", name = "electric-component-r1", amount = 10},
+            {type = "item", name = "electronic-circuit", amount = 4}
+        },
+        {{type = "item", name = "et-electric-locomotive-2", amount = 1}},
+        {"red-workshop-locomotive"}
+    ),
+    create_recipe("et-electric-locomotive-3", 2, false,
+        {
+            {type = "item", name = "electric-engine-unit", amount = 2},
+            {type = "item", name = "et-electric-locomotive-2", amount = 4},
+            {type = "item", name = "electronic-circuit", amount = 4}
+        },
+        {{type = "item", name = "et-electric-locomotive-3", amount = 1}},
+        {"red-workshop-locomotive"}
+    ),
+    create_recipe("et-control-station-1", 1, false,
+        {
+            {type = "item", name = "accumulator", amount = 2},
+            {type = "item", name = "advanced-circuit", amount = 1}
+        },
+        {{type = "item", name = "et-control-station-1", amount = 1}}
+    ),
+})
+
 --ELECTRIC TRAIN R1
-local elocr1_item = table.deepcopy(data.raw['item-with-entity-data']['locomotive'])
-elocr1_item.name = "et-electric-locomotive-1"
-elocr1_item.icon = "__RERailworld__/graphics/icons/eletric-train/eletric-r1.png"
-elocr1_item.icon_size = 32
-elocr1_item.subgroup = "re-eletricTrain"
-elocr1_item.order = "b-a"
-elocr1_item.place_result = "et-electric-locomotive-1"
-elocr1_item.stack_size = 4
-
-local elocr1_recipe = table.deepcopy(data.raw['recipe']['locomotive'])
-elocr1_recipe.name = "et-electric-locomotive-1"
-elocr1_recipe.energy_required = 2
-elocr1_recipe.ingredients = {
-    {type = "item", name = "electric-engine-unit", amount = 20},
-    {type = "item", name = "locomotive", amount = 2},
-    {type = "item", name = "battery", amount = 20}
-}
-elocr1_recipe.results = {{type="item", name="et-electric-locomotive-1", amount=1}}
-elocr1_recipe.categories = {"red-workshop-locomotive"}
-
 local elocr1 = table.deepcopy(data.raw['locomotive']['locomotive'])
 elocr1.name = "et-electric-locomotive-1"
 elocr1.minable.results = {{type="item", name="et-electric-locomotive-1", amount=1}}
@@ -54,31 +84,7 @@ elocr1.pictures.rotated.layers = {{
     lines_per_file = 4,
     shift = {0, -0.625}
 }}
-
-data:extend({elocr1_item,elocr1_recipe,elocr1})
-
 --ELECTRIC TRAIN R2
-local elocr2_item = table.deepcopy(data.raw['item-with-entity-data']['locomotive'])
-elocr2_item.name = "et-electric-locomotive-2"
-elocr2_item.icon = "__RERailworld__/graphics/icons/eletric-train/eletric-r2.png"
-elocr2_item.icon_size = 32
-elocr2_item.subgroup = "re-eletricTrain"
-elocr2_item.order = "b-b"
-elocr2_item.place_result = "et-electric-locomotive-2"
-elocr2_item.stack_size = 4
-
-local elocr2_recipe = table.deepcopy(data.raw['recipe']['locomotive'])
-elocr2_recipe.name = "et-electric-locomotive-2"
-elocr2_recipe.energy_required = 2
-elocr2_recipe.ingredients = {
-    {type = "item", name = "electric-engine-unit", amount = 10},
-    {type = "item", name = "et-electric-locomotive-1", amount = 4},
-    {type = "item", name = "electric-component-r1", amount = 10},
-    {type = "item", name = "electronic-circuit", amount = 4}
-}
-elocr2_recipe.results = {{type="item", name="et-electric-locomotive-2", amount=1}}
-elocr2_recipe.categories = {"red-workshop-locomotive"}
-
 local elocr2 = table.deepcopy(data.raw['locomotive']['locomotive'])
 elocr2.name = "et-electric-locomotive-2"
 elocr2.minable.results = {{type="item", name="et-electric-locomotive-2", amount=1}}
@@ -114,29 +120,7 @@ elocr2.pictures.rotated.layers = {{
     lines_per_file = 4,
     shift = {0, -0.625}
 }}
-
-data:extend({elocr2_item,elocr2_recipe,elocr2})
 --ELECTRIC TRAIN R3
-local elocr3_item = table.deepcopy(data.raw['item-with-entity-data']['locomotive'])
-elocr3_item.name = "et-electric-locomotive-3"
-elocr3_item.icon = "__RERailworld__/graphics/icons/eletric-train/eletric-r3.png"
-elocr3_item.icon_size = 32
-elocr3_item.subgroup = "re-eletricTrain"
-elocr3_item.order = "b-c"
-elocr3_item.place_result = "et-electric-locomotive-3"
-elocr3_item.stack_size = 4
-
-local elocr3_recipe = table.deepcopy(data.raw['recipe']['locomotive'])
-elocr3_recipe.name = "et-electric-locomotive-3"
-elocr3_recipe.energy_required = 2
-elocr3_recipe.ingredients = {
-    {type = "item", name = "electric-engine-unit", amount = 2},
-    {type = "item", name = "et-electric-locomotive-2", amount = 4},
-    {type = "item", name = "electronic-circuit", amount = 4}
-}
-elocr3_recipe.results = {{type="item", name="et-electric-locomotive-3", amount=1}}
-elocr3_recipe.categories = {"red-workshop-locomotive"}
-
 local elocr3 = table.deepcopy(data.raw['locomotive']['locomotive'])
 elocr3.name = "et-electric-locomotive-3"
 elocr3.minable.results = {{type="item", name="et-electric-locomotive-3", amount=1}}
@@ -204,30 +188,7 @@ elocr3.pictures.rotated = {
         }
     }
 }
-data:extend({elocr3_item,elocr3_recipe,elocr3})
-
-
-
-
-
-
-local ppro_item = table.deepcopy(data.raw['item']['accumulator'])
-ppro_item.name = "et-control-station-1"
-ppro_item.icon = "__RERailworld__/graphics/icons/eletric-train/provider.png"
-ppro_item.icon_size = 32
-ppro_item.subgroup = "re-workshop"
-ppro_item.order = "a-a"
-ppro_item.place_result = "et-control-station-1"
-
-local ppro_recipe = table.deepcopy(data.raw['recipe']['accumulator'])
-ppro_recipe.name = "et-control-station-1"
-ppro_recipe.ingredients = {
-    {type = "item", name = "accumulator", amount = 2},
-    {type = "item", name = "advanced-circuit", amount = 1}
-}
-ppro_recipe.results = {{type="item", name="et-control-station-1", amount=1}}
-
-data:extend({ppro_item,ppro_recipe})
+data:extend({elocr1, elocr2, elocr3})
 
 local provider = table.deepcopy(data.raw['electric-energy-interface']['electric-energy-interface'])    
 provider.name = "et-control-station-1"
@@ -253,8 +214,8 @@ provider.picture = {
     scale = 0.5, 
     shift = {0.5, -0.375},
     frame_count = 1,
-    line_length = 1,            
-    animation_speed = 1,
+    line_length = 1,
+    animation_speed = 1
 }
 provider.collision_box = {{-1.2,-1.2},{1.2,1.2}}
 provider.selection_box = {{-1.5,-1.5},{1.5,1.5}}

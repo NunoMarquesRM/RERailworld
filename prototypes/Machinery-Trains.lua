@@ -1,5 +1,4 @@
 data:extend({
-    
     -- Workshop Locomotive
     create_item("workshop-loco-r1", "machinery/workshop-loco", 32,
     "re-workshop", "a-b", 50),

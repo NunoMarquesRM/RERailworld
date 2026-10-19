@@ -1,4 +1,112 @@
 data:extend({
+    create_item("cargo-wagon-r1", "wagon/cargo-wagon-r1", 32,
+        "re-wagons", "d-a", 5, sounds["train-pickup"], sounds["metal-large-drop"]),
+    create_item("cargo-wagon-r2", "wagon/cargo-wagon-r2", 32,
+        "re-wagons", "d-b", 5, sounds["train-pickup"], sounds["metal-large-drop"]),
+    create_item("cargo-wagon-copper-r1", "wagon/cargo-wagon-copper-r1", 32,
+        "re-wagons-per", "f-a", 5, sounds["train-pickup"], sounds["metal-large-drop"]),
+    create_item("cargo-wagon-iron-r1", "wagon/cargo-wagon-iron-r1", 32,
+        "re-wagons-per", "f-b", 5, sounds["train-pickup"], sounds["metal-large-drop"]),
+    create_item("cargo-wagon-coal-r1", "wagon/cargo-wagon-coal-r1", 32,
+        "re-wagons-per", "f-c", 5, sounds["train-pickup"], sounds["metal-large-drop"]),
+    create_item("cargo-wagon-stone-r1", "wagon/cargo-wagon-stone-r1", 32,
+        "re-wagons-per", "f-d", 5, sounds["train-pickup"], sounds["metal-large-drop"]),
+    create_item("cargo-wagon-stone-r2", "wagon/cargo-wagon-stone-r2", 32,
+        "re-wagons-per", "f-e", 5, sounds["train-pickup"], sounds["metal-large-drop"]),
+    create_item("cargo-wagon-uranium-r1", "wagon/cargo-wagon-uranium-r1", 32,
+        "re-wagons-per", "f-f", 5, sounds["train-pickup"], sounds["metal-large-drop"]),
+    create_item("cargo-wagon-uranium-r2", "wagon/cargo-wagon-uranium-r2", 32,
+        "re-wagons-per", "f-g", 5, sounds["train-pickup"], sounds["metal-large-drop"]),
+
+    create_recipe("cargo-wagon-r1", 1, false,
+        {
+            {type = "item", name = "cargo-wagon", amount = 1},
+            {type = "item", name = "iron-gear-wheel", amount = 5},
+            {type = "item", name = "copper-gear-wheel-r1", amount = 5},
+            {type = "item", name = "steel-plate", amount = 10}
+        },
+        {{type = "item", name = "cargo-wagon-r1", amount = 1}},
+        {"red-workshop-wagon"}
+    ),
+    create_recipe("cargo-wagon-r2", 1, false,
+        {
+            {type = "item", name = "cargo-wagon-r1", amount = 1},
+            {type = "item", name = "electric-component-r1", amount = 5},
+            {type = "item", name = "cable-r1", amount = 5},
+            {type = "item", name = "reinforced-component-r1", amount = 5}
+        },
+        {{type = "item", name = "cargo-wagon-r2", amount = 1}},
+        {"red-workshop-wagon"}
+    ),
+    create_recipe("cargo-wagon-copper-r1", 1, false,
+        {
+            {type = "item", name = "cargo-wagon-r2", amount = 1},
+            {type = "item", name = "reinforced-copper-plate-r1", amount = 20},
+            {type = "item", name = "reinforced-gear-copper-r1", amount = 5}
+        },
+        {{type = "item", name = "cargo-wagon-copper-r1", amount = 1}},
+        {"red-workshop-wagon"}
+    ),
+    create_recipe("cargo-wagon-iron-r1", 1, false,
+        {
+            {type = "item", name = "cargo-wagon-r2", amount = 1},
+            {type = "item", name = "reinforced-iron-plate-r1", amount = 20},
+            {type = "item", name = "reinforced-gear-iron-r1", amount = 5}
+        },
+        {{type = "item", name = "cargo-wagon-iron-r1", amount = 1}},
+        {"red-workshop-wagon"}
+    ),
+    create_recipe("cargo-wagon-coal-r1", 1, false,
+        {
+            {type = "item", name = "cargo-wagon-r2", amount = 1},
+            {type = "item", name = "reinforced-coal-plate-r1", amount = 20},
+            {type = "item", name = "reinforced-component-r1", amount = 5}
+        },
+        {{type = "item", name = "cargo-wagon-coal-r1", amount = 1}},
+        {"red-workshop-wagon"}
+    ),
+    create_recipe("cargo-wagon-stone-r1", 1, false,
+        {
+            {type = "item", name = "cargo-wagon-r2", amount = 1},
+            {type = "item", name = "stone", amount = 50},
+            {type = "item", name = "reinforced-gear-iron-r1", amount = 5},
+            {type = "item", name = "steel-plate", amount = 10}
+        },
+        {{type = "item", name = "cargo-wagon-stone-r1", amount = 1}},
+        {"red-workshop-wagon"}
+    ),
+    create_recipe("cargo-wagon-stone-r2", 1, false,
+        {
+            {type = "item", name = "cargo-wagon-r2", amount = 1},
+            {type = "item", name = "stone", amount = 50},
+            {type = "item", name = "reinforced-gear-iron-r1", amount = 5},
+            {type = "item", name = "steel-plate", amount = 10}
+        },
+        {{type = "item", name = "cargo-wagon-stone-r2", amount = 1}},
+        {"red-workshop-wagon"}
+    ),
+    create_recipe("cargo-wagon-uranium-r1", 1, false,
+        {
+            {type = "item", name = "cargo-wagon-r2", amount = 1},
+            {type = "item", name = "uranium-ore", amount = 50},
+            {type = "item", name = "reinforced-gear-iron-r1", amount = 5},
+            {type = "item", name = "steel-plate", amount = 10}
+        },
+        {{type = "item", name = "cargo-wagon-uranium-r1", amount = 1}},
+        {"red-workshop-wagon"}
+    ),
+    create_recipe("cargo-wagon-uranium-r2", 1, false,
+        {
+            {type = "item", name = "cargo-wagon-r2", amount = 1},
+            {type = "item", name = "uranium-ore", amount = 50},
+            {type = "item", name = "reinforced-gear-iron-r1", amount = 5},
+            {type = "item", name = "steel-plate", amount = 10}
+        },
+        {{type = "item", name = "cargo-wagon-uranium-r2", amount = 1}},
+        {"red-workshop-wagon"}
+    ),
+
+
 --ENTITY
 {--Cargo Wagon R2
     type = "cargo-wagon",
@@ -363,26 +471,6 @@ data:extend({
 })
 
 -- Railway R1
-local cwag_r1 = table.deepcopy(data.raw['recipe']['cargo-wagon'])
-cwag_r1.name = "cargo-wagon-r1"
-cwag_r1.enabled = false
-cwag_r1.ingredients = {
-    {type = "item", name = "cargo-wagon", amount = 1},
-    {type = "item", name = "iron-gear-wheel", amount = 5},
-    {type = "item", name = "copper-gear-wheel-r1", amount = 5},
-    {type = "item", name = "steel-plate", amount = 10}
-}
-cwag_r1.results = {{type="item", name="cargo-wagon-r1", amount=1}}
-cwag_r1.categories = {"red-workshop-wagon"}
-
-local cwag_r1_item = table.deepcopy(data.raw['item-with-entity-data']['cargo-wagon'])
-cwag_r1_item.name = "cargo-wagon-r1"
-cwag_r1_item.icon = "__RERailworld__/graphics/icons/wagon/cargo-wagon-r1.png"
-cwag_r1_item.icon_size = 32
-cwag_r1_item.subgroup = "re-wagons"
-cwag_r1_item.order = "d-a"
-cwag_r1_item.place_result = "cargo-wagon-r1"
-
 local cwag_r1_entity = table.deepcopy(data.raw['cargo-wagon']['cargo-wagon-r2'])
 cwag_r1_entity.name = "cargo-wagon-r1"
 cwag_r1_entity.icon = "__RERailworld__/graphics/icons/wagon/cargo-wagon-r1.png"
@@ -414,185 +502,4 @@ cwag_r1_entity.pictures.rotated.layers = {{
 }}
 cwag_r1_entity.rail_category = "regular"
 
-data:extend({cwag_r1,cwag_r1_item,cwag_r1_entity})
---RAILWAY R2
-local cwag_r2 = table.deepcopy(data.raw['recipe']['cargo-wagon'])
-cwag_r2.name = "cargo-wagon-r2"
-cwag_r2.enabled = false
-cwag_r2.ingredients = {
-    {type = "item", name = "cargo-wagon-r1", amount = 1},
-    {type = "item", name = "electric-component-r1", amount = 5},
-    {type = "item", name = "cable-r1", amount = 5},
-    {type = "item", name = "reinforced-component-r1", amount = 5}
-}
-cwag_r2.results = {{type="item", name="cargo-wagon-r2", amount=1}}
-cwag_r2.categories = {"red-workshop-wagon"}
-
-local cwag_r2_item = table.deepcopy(data.raw['item-with-entity-data']['cargo-wagon'])
-cwag_r2_item.name = "cargo-wagon-r2"
-cwag_r2_item.icon = "__RERailworld__/graphics/icons/wagon/cargo-wagon-r2.png"
-cwag_r2_item.icon_size = 32
-cwag_r2_item.subgroup = "re-wagons"
-cwag_r2_item.order = "d-b"
-cwag_r2_item.place_result = "cargo-wagon-r2"
-
-data:extend({cwag_r2,cwag_r2_item})
---RAILWAY R3
-
---Copper Wagon
-local copwag_r1 = table.deepcopy(data.raw['recipe']['cargo-wagon'])
-copwag_r1.name = "cargo-wagon-copper-r1"
-copwag_r1.enabled = false
-copwag_r1.ingredients = {
-    {type = "item", name = "cargo-wagon-r2", amount = 1},
-    {type = "item", name = "reinforced-copper-plate-r1", amount = 20},
-    {type = "item", name = "reinforced-gear-copper-r1", amount = 5}
-}
-copwag_r1.results = {{type="item", name="cargo-wagon-copper-r1", amount=1}}
-copwag_r1.categories = {"red-workshop-wagon"}
-
-local copwag_r1_item = table.deepcopy(data.raw['item-with-entity-data']['cargo-wagon'])
-copwag_r1_item.name = "cargo-wagon-copper-r1"
-copwag_r1_item.icon = "__RERailworld__/graphics/icons/wagon/cargo-wagon-copper-r1.png"
-copwag_r1_item.icon_size = 32
-copwag_r1_item.subgroup = "re-wagons-per"
-copwag_r1_item.order = "f-a"
-copwag_r1_item.place_result = "cargo-wagon-copper-r1"
-
-data:extend({copwag_r1,copwag_r1_item})
-
---Iron Wagon
-local ironwag_r1 = table.deepcopy(data.raw['recipe']['cargo-wagon'])
-ironwag_r1.name = "cargo-wagon-iron-r1"
-ironwag_r1.enabled = false
-ironwag_r1.ingredients = {
-    {type = "item", name = "cargo-wagon-r2", amount = 1},
-    {type = "item", name = "reinforced-iron-plate-r1", amount = 20},
-    {type = "item", name = "reinforced-gear-iron-r1", amount = 5}
-}
-ironwag_r1.results = {{type="item", name="cargo-wagon-iron-r1", amount=1}}
-ironwag_r1.categories = {"red-workshop-wagon"}
-
-local ironwag_r1_item = table.deepcopy(data.raw['item-with-entity-data']['cargo-wagon'])
-ironwag_r1_item.name = "cargo-wagon-iron-r1"
-ironwag_r1_item.icon = "__RERailworld__/graphics/icons/wagon/cargo-wagon-iron-r1.png"
-ironwag_r1_item.icon_size = 32
-ironwag_r1_item.subgroup = "re-wagons-per"
-ironwag_r1_item.order = "f-b"
-ironwag_r1_item.place_result = "cargo-wagon-iron-r1"
-
-data:extend({ironwag_r1,ironwag_r1_item})
-
---Coal Wagon R1
-local coalwag_r1 = table.deepcopy(data.raw['recipe']['cargo-wagon'])
-coalwag_r1.name = "cargo-wagon-coal-r1"
-coalwag_r1.enabled = false
-coalwag_r1.ingredients = {
-    {type = "item", name = "cargo-wagon-r2", amount = 1},
-    {type = "item", name = "reinforced-coal-plate-r1", amount = 20},
-    {type = "item", name = "reinforced-component-r1", amount = 5}
-}
-coalwag_r1.results = {{type="item", name="cargo-wagon-coal-r1", amount=1}}
-coalwag_r1.categories = {"red-workshop-wagon"}
-
-local coalwag_r1_item = table.deepcopy(data.raw['item-with-entity-data']['cargo-wagon'])
-coalwag_r1_item.name = "cargo-wagon-coal-r1"
-coalwag_r1_item.icon = "__RERailworld__/graphics/icons/wagon/cargo-wagon-coal-r1.png"
-coalwag_r1_item.icon_size = 32
-coalwag_r1_item.subgroup = "re-wagons-per"
-coalwag_r1_item.order = "f-d"
-coalwag_r1_item.place_result = "cargo-wagon-coal-r1"
-
-data:extend({coalwag_r1,coalwag_r1_item})
-
---Stone Wagon R1
-local stonewag_r1 = table.deepcopy(data.raw['recipe']['cargo-wagon'])
-stonewag_r1.name = "cargo-wagon-stone-r1"
-stonewag_r1.enabled = false
-stonewag_r1.ingredients = {
-    {type = "item", name = "cargo-wagon-r2", amount = 1},
-    {type = "item", name = "stone", amount = 50},
-    {type = "item", name = "reinforced-gear-iron-r1", amount = 5},
-    {type = "item", name = "steel-plate", amount = 10}
-}
-stonewag_r1.results = {{type="item", name="cargo-wagon-stone-r1", amount=1}}
-stonewag_r1.categories = {"red-workshop-wagon"}
-
-local stonewag_r1_item = table.deepcopy(data.raw['item-with-entity-data']['cargo-wagon'])
-stonewag_r1_item.name = "cargo-wagon-stone-r1"
-stonewag_r1_item.icon = "__RERailworld__/graphics/icons/wagon/cargo-wagon-stone-r1.png"
-stonewag_r1_item.icon_size = 32
-stonewag_r1_item.subgroup = "re-wagons-per"
-stonewag_r1_item.order = "f-e"
-stonewag_r1_item.place_result = "cargo-wagon-stone-r1"
-
-data:extend({stonewag_r1,stonewag_r1_item})
-
---Stone Wagon R2
-local stonewag_r2 = table.deepcopy(data.raw['recipe']['cargo-wagon'])
-stonewag_r2.name = "cargo-wagon-stone-r2"
-stonewag_r2.enabled = false
-stonewag_r2.ingredients = {
-    {type = "item", name = "cargo-wagon-r2", amount = 1},
-    {type = "item", name = "stone", amount = 50},
-    {type = "item", name = "reinforced-gear-iron-r1", amount = 5},
-    {type = "item", name = "steel-plate", amount = 10}
-}
-stonewag_r2.results = {{type="item", name="cargo-wagon-stone-r2", amount=1}}
-stonewag_r2.categories = {"red-workshop-wagon"}
-
-local stonewag_r2_item = table.deepcopy(data.raw['item-with-entity-data']['cargo-wagon'])
-stonewag_r2_item.name = "cargo-wagon-stone-r2"
-stonewag_r2_item.icon = "__RERailworld__/graphics/icons/wagon/cargo-wagon-stone-r2.png"
-stonewag_r2_item.icon_size = 32
-stonewag_r2_item.subgroup = "re-wagons-per"
-stonewag_r2_item.order = "f-f"
-stonewag_r2_item.place_result = "cargo-wagon-stone-r2"
-
-data:extend({stonewag_r2,stonewag_r2_item})
-
---Uranium Wagon R1
-local urawag_r1 = table.deepcopy(data.raw['recipe']['cargo-wagon'])
-urawag_r1.name = "cargo-wagon-uranium-r1"
-urawag_r1.enabled = false
-urawag_r1.ingredients = {
-    {type = "item", name = "cargo-wagon-r2", amount = 1},
-    {type = "item", name = "uranium-ore", amount = 50},
-    {type = "item", name = "reinforced-gear-iron-r1", amount = 5},
-    {type = "item", name = "steel-plate", amount = 10}
-}
-urawag_r1.results = {{type="item", name="cargo-wagon-uranium-r1", amount=1}}
-urawag_r1.categories = {"red-workshop-wagon"}
-
-local urawag_r1_item = table.deepcopy(data.raw['item-with-entity-data']['cargo-wagon'])
-urawag_r1_item.name = "cargo-wagon-uranium-r1"
-urawag_r1_item.icon = "__RERailworld__/graphics/icons/wagon/cargo-wagon-uranium-r1.png"
-urawag_r1_item.icon_size = 32
-urawag_r1_item.subgroup = "re-wagons-per"
-urawag_r1_item.order = "f-g"
-urawag_r1_item.place_result = "cargo-wagon-uranium-r1"
-
-data:extend({urawag_r1,urawag_r1_item})
-
---Uranium Wagon R2
-local urawag_r2 = table.deepcopy(data.raw['recipe']['cargo-wagon'])
-urawag_r2.name = "cargo-wagon-uranium-r2"
-urawag_r2.enabled = false
-urawag_r2.ingredients = {
-    {type = "item", name = "cargo-wagon-r2", amount = 1},
-    {type = "item", name = "uranium-ore", amount = 50},
-    {type = "item", name = "reinforced-gear-iron-r1", amount = 5},
-    {type = "item", name = "steel-plate", amount = 10}
-}
-urawag_r2.results = {{type="item", name="cargo-wagon-uranium-r2", amount=1}}
-urawag_r2.categories = {"red-workshop-wagon"}
-
-local urawag_r2_item = table.deepcopy(data.raw['item-with-entity-data']['cargo-wagon'])
-urawag_r2_item.name = "cargo-wagon-uranium-r2"
-urawag_r2_item.icon = "__RERailworld__/graphics/icons/wagon/cargo-wagon-uranium-r2.png"
-urawag_r2_item.icon_size = 32
-urawag_r2_item.subgroup = "re-wagons-per"
-urawag_r2_item.order = "f-h"
-urawag_r2_item.place_result = "cargo-wagon-uranium-r2"
-
-data:extend({urawag_r2,urawag_r2_item})
+data:extend({cwag_r1_entity})
