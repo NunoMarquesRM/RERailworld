@@ -1,30 +1,36 @@
-local drive_over_tie = function()
-  return {
-    type = "play-sound",
-    sound = sound_variations("__base__/sound/train-tie", 6, 0.4, { volume_multiplier("main-menu", 2.4), volume_multiplier("driving", 1.3) } )
-  }
-end
+data:extend({
+    create_item("fluid-wagon-r1", "wagon/liquid-wagon-r1", 32,
+        "re-wagonsLiquid", "e-a", 5, sounds["fluid-pickup"], sounds["fluid-drop"]),
+    create_item("fluid-wagon-r2", "wagon/liquid-wagon-r2", 32,
+        "re-wagonsLiquid", "e-b", 5, sounds["fluid-pickup"], sounds["fluid-drop"]),
 
-local standard_train_wheels = {
-  rotated = util.sprite_load("__base__/graphics/entity/train-wheel/train-wheel",
-    {
-      priority = "very-low",
-      direction_count = 256,
-      scale = 0.5,
-      shift = util.by_pixel(0, 8),
-      usage = "train"
-    }
-  )
-}
-
-data:extend({ 
+    create_recipe("fluid-wagon-r1", 1, false,
+        {
+            {type = "item", name = "fluid-wagon", amount = 1},
+            {type = "item", name = "iron-gear-wheel", amount = 5},
+            {type = "item", name = "copper-gear-wheel-r1", amount = 5},
+            {type = "item", name = "steel-plate", amount = 10}
+        },
+        {{type = "item", name = "fluid-wagon-r1", amount = 1}},
+        {"red-workshop-wagon"}
+    ),
+    create_recipe("fluid-wagon-r2", 1, false,
+        {
+            {type = "item", name = "fluid-wagon-r1", amount = 2},
+            {type = "item", name = "electric-component-r1", amount = 5},
+            {type = "item", name = "cable-r1", amount = 5},
+            {type = "item", name = "reinforced-component-r1", amount = 5}
+        },
+        {{type = "item", name = "fluid-wagon-r2", amount = 1}},
+        {"red-workshop-wagon"}
+    ),
 --ENTITY
 {--Liquid Wagon R1
     type = "fluid-wagon",
     name = "fluid-wagon-r1",
     icon = "__RERailworld__/graphics/icons/wagon/liquid-wagon-r1.png",
     icon_size = 32,
-    flags = {"placeable-neutral", "player-creation", "placeable-off-grid", },
+    flags = {"placeable-neutral", "player-creation", "placeable-off-grid", "not-on-map"},
     capacity = 150000, --150k
     minable = {mining_time = 1, result = "fluid-wagon-r1"},
     mined_sound = {filename = "__core__/sound/deconstruct-medium.ogg"},
@@ -119,7 +125,7 @@ data:extend({
     name = "fluid-wagon-r2",
     icon = "__RERailworld__/graphics/icons/wagon/liquid-wagon-r2.png",
     icon_size = 32,
-    flags = {"placeable-neutral", "player-creation", "placeable-off-grid", },
+    flags = {"placeable-neutral", "player-creation", "placeable-off-grid", "not-on-map"},
     minable = {mining_time = 1, result = "fluid-wagon-r2"},
     mined_sound = {filename = "__core__/sound/deconstruct-medium.ogg"},
     max_health = 2000,
@@ -208,49 +214,5 @@ data:extend({
     working_sound = {sound ={filename = "__base__/sound/train-wheels.ogg",volume = 0.5},match_volume_to_activity = true,},
     sound_minimum_speed = 0.5,
     vehicle_impact_sound =  { filename = "__base__/sound/car-wood-impact.ogg", volume = 1.0 }
-}, 
+}
 })
---RAILWAY R1
-local fwag_r1 = table.deepcopy(data.raw['recipe']['fluid-wagon'])
-fwag_r1.name = "fluid-wagon-r1"
-fwag_r1.enabled = false
-fwag_r1.ingredients = {
-    {type = "item", name = "fluid-wagon", amount = 1},
-    {type = "item", name = "iron-gear-wheel", amount = 5},
-    {type = "item", name = "copper-gear-wheel-r1", amount = 5},
-    {type = "item", name = "steel-plate", amount = 10}
-}
-fwag_r1.results = {{type="item", name="fluid-wagon-r1", amount=1}}
-fwag_r1.categories = {"red-workshop-wagon"}
-
-local fwag_r1_item = table.deepcopy(data.raw['item-with-entity-data']['fluid-wagon'])
-fwag_r1_item.name = "fluid-wagon-r1"
-fwag_r1_item.icon = "__RERailworld__/graphics/icons/wagon/liquid-wagon-r1.png"
-fwag_r1_item.icon_size = 32
-fwag_r1_item.subgroup = "re-wagonsLiquid"
-fwag_r1_item.order = "e-a"
-fwag_r1_item.place_result = "fluid-wagon-r1"
-
-data:extend({fwag_r1,fwag_r1_item})
---RAILWAY R2
-local fwag_r2 = table.deepcopy(data.raw['recipe']['fluid-wagon'])
-fwag_r2.name = "fluid-wagon-r2"
-fwag_r2.enabled = false
-fwag_r2.ingredients = {
-    {type = "item", name = "fluid-wagon-r1", amount = 2},
-    {type = "item", name = "electric-component-r1", amount = 5},
-    {type = "item", name = "cable-r1", amount = 5},
-    {type = "item", name = "reinforced-component-r1", amount = 5}
-}
-fwag_r2.results = {{type="item", name="fluid-wagon-r2", amount=1}}
-fwag_r2.categories = {"red-workshop-wagon"}
-
-local fwag_r2_item = table.deepcopy(data.raw['item-with-entity-data']['fluid-wagon'])
-fwag_r2_item.name = "fluid-wagon-r2"
-fwag_r2_item.icon = "__RERailworld__/graphics/icons/wagon/liquid-wagon-r2.png"
-fwag_r2_item.icon_size = 32
-fwag_r2_item.subgroup = "re-wagonsLiquid"
-fwag_r2_item.order = "e-b"
-fwag_r2_item.place_result = "fluid-wagon-r2"
-
-data:extend({fwag_r2,fwag_r2_item})

@@ -1,9 +1,9 @@
 {
     "name": "RERailworld",
-    "version": "2.0.0",
+    "version": "2.0.4",
     "title": "Red Extended Railworld",
     "author": "RedMike-PT",
-    "contact": "",
+    "contact": "https://steamcommunity.com/id/RedMikePT/",
     "homepage": "https://github.com/NunoMarquesRM/RERailworld",
     "factorio_version": "2.1",
     "dependencies": ["base >= 2.1","RExtended >= 2.0"],
