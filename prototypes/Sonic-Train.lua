@@ -14,74 +14,74 @@ data:extend({
         "re-sonic-fuel", "w-c", 100, "550GJ", 5.9, 5.95),
     
     create_recipe("sonic-train-r1", 1, false,
-        {
-            {type = "item", name = "locomotive", amount = 2},
-            {type = "item", name = "steel-plate", amount = 200},
-            {type = "item", name = "iron-plate", amount = 500}
-        },
-        {{type = "item", name = "sonic-train-r1", amount = 1}},
-        {"red-workshop-locomotive"}
-    ),
+            {
+                {type = "item", name = "locomotive", amount = 2},
+                {type = "item", name = "steel-plate", amount = 200},
+                {type = "item", name = "iron-plate", amount = 500}
+            },
+            {{type = "item", name = "sonic-train-r1", amount = 1}},
+            {"red-workshop-locomotive"}
+        ),
     create_recipe("sonic-train-r2", 1, false,
-        {
-            {type = "item", name = "sonic-train-r1", amount = 3},
-            {type = "item", name = "steel-plate", amount = 250},
-            {type = "item", name = "iron-plate", amount = 250},
-            {type = "item", name = "electronic-circuit", amount = 100}
-        },
-        {{type = "item", name = "sonic-train-r2", amount = 1}},
-        {"red-workshop-locomotive"}
-    ),
+            {
+                {type = "item", name = "sonic-train-r1", amount = 3},
+                {type = "item", name = "steel-plate", amount = 250},
+                {type = "item", name = "iron-plate", amount = 250},
+                {type = "item", name = "electronic-circuit", amount = 100}
+            },
+            {{type = "item", name = "sonic-train-r2", amount = 1}},
+            {"red-workshop-locomotive"}
+        ),
     create_recipe("sonic-train-r3", 1, false,
-        {
-            {type = "item", name = "sonic-train-r2", amount = 5},
-            {type = "item", name = "steel-plate", amount = 500},
-            {type = "item", name = "iron-plate", amount = 500},
-            {type = "item", name = "electronic-circuit", amount = 300}
-        },
-        {{type = "item", name = "sonic-train-r3", amount = 1}},
-        {"red-workshop-locomotive"}
-    ),
+            {
+                {type = "item", name = "sonic-train-r2", amount = 5},
+                {type = "item", name = "steel-plate", amount = 500},
+                {type = "item", name = "iron-plate", amount = 500},
+                {type = "item", name = "electronic-circuit", amount = 300}
+            },
+            {{type = "item", name = "sonic-train-r3", amount = 1}},
+            {"red-workshop-locomotive"}
+        ),
     -- Fuel
     create_recipe("giga-fuel", 1, false,
-        {
-            {type = "fluid", name = "light-oil", amount = 300},
-            {type = "item", name = "coal", amount = 300}
-        },
-        {{type = "item", name = "giga-fuel", amount = 1}},
-        {"crafting-with-fluid", "red-enrichment-chamber"}
-    ),
+            {
+                {type = "fluid", name = "light-oil", amount = 300},
+                {type = "item", name = "coal", amount = 300}
+            },
+            {{type = "item", name = "giga-fuel", amount = 1}},
+            {"crafting-with-fluid", "red-enrichment-chamber"}
+        ),
     create_recipe("giga-fuel2", 1, false,
-        {
-            {type = "fluid", name = "heavy-oil", amount = 300},
-            {type = "item", name = "coal", amount = 300}
-        },
-        {{type = "item", name = "giga-fuel", amount = 1}},
-        {"crafting-with-fluid", "red-enrichment-chamber"}
-    ),
+            {
+                {type = "fluid", name = "heavy-oil", amount = 300},
+                {type = "item", name = "coal", amount = 300}
+            },
+            {{type = "item", name = "giga-fuel", amount = 1}},
+            {"crafting-with-fluid", "red-enrichment-chamber"}
+        ),
     create_recipe("giga-fuel3", 1, false,
-        {
-            {type = "item", name = "solid-fuel", amount = 100}
-        },
-        {{type = "item", name = "giga-fuel", amount = 1}},
-        {"red-extreme-fuel"}
-    ),
+            {
+                {type = "item", name = "solid-fuel", amount = 100}
+            },
+            {{type = "item", name = "giga-fuel", amount = 1}},
+            {"red-extreme-fuel"}
+        ),
     create_recipe("giga-fuel-r2", 1, false,
-        {
-            {type = "item", name = "giga-fuel", amount = 15},
-            {type = "item", name = "solid-fuel", amount = 15}
-        },
-        {{type = "item", name = "giga-fuel-r2", amount = 10}},
-        {"red-extreme-fuel"}
-    ),
+            {
+                {type = "item", name = "giga-fuel", amount = 15},
+                {type = "item", name = "solid-fuel", amount = 15}
+            },
+            {{type = "item", name = "giga-fuel-r2", amount = 10}},
+            {"red-extreme-fuel"}
+        ),
     create_recipe("giga-fuel-r3", 1, false,
-        {
-            {type = "item", name = "giga-fuel-r2", amount = 10},
-            {type = "item", name = "uranium-fuel-cell", amount = 15}
-        },
-        {{type = "item", name = "giga-fuel-r3", amount = 4}},
-        {"red-extreme-fuel"}
-    ),
+            {
+                {type = "item", name = "giga-fuel-r2", amount = 10},
+                {type = "item", name = "uranium-fuel-cell", amount = 15}
+            },
+            {{type = "item", name = "giga-fuel-r3", amount = 4}},
+            {"red-extreme-fuel"}
+        ),
 --IMAGE
     {--Sonic Train R1
         type = "locomotive",

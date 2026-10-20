@@ -97,3 +97,44 @@ function create_item_fuel(name, icon, icon_size, subgroup, order, stack_size, va
         fuel_top_speed_multiplier = top_speed
     }
 end
+
+function create_cargo_wagon(options)
+    return {
+        type = "cargo-wagon",
+        name = options.name,
+        icon = options.icon,
+        icon_size = 32,
+        flags = {"placeable-neutral", "player-creation", "placeable-off-grid", "not-on-map"},
+        inventory_size = options.inventory_size,
+        minable = {mining_time = 1, result = options.name},
+        mined_sound = {filename = "__core__/sound/deconstruct-medium.ogg"},
+        max_health = options.max_health or 2000,
+        corpse = "medium-remnants",
+        dying_explosion = "medium-explosion",
+        collision_box = {{-0.6, -2.4}, {0.6, 2.4}},
+        selection_box = {{-1.0, -2.7}, {1, 3.2}},
+        connection_distance = 3,
+        joint_distance = 4,
+        weight = options.weight or 2000,
+        max_speed = options.max_speed or 40, -- 216*40 = 8640 km/h
+        braking_force = options.braking_force or 500,
+        friction_force = options.friction_force or 0.0000001,
+        air_resistance = options.air_resistance or 0.0000001,
+        energy_per_hit_point = 5,
+        resistances = options.resistances,
+        vertical_selection_shift = -0.5,
+        pictures = options.pictures,
+        wheels = standard_train_wheels,
+        rail_category = "regular",
+        drive_over_tie_trigger = drive_over_tie(),
+        tie_distance = 50,
+        working_sound = {
+            sound = {filename = "__base__/sound/train-wheels.ogg", volume = 0.5},
+            match_volume_to_activity = true
+        },
+        open_sound = {filename = "__base__/sound/machine-open.ogg", volume = 0.85},
+        close_sound = {filename = "__base__/sound/machine-close.ogg", volume = 0.75},
+        sound_minimum_speed = 0.5,
+        vehicle_impact_sound = {filename = "__base__/sound/car-wood-impact.ogg", volume = 1.0}
+    }
+end
