@@ -88,7 +88,7 @@ data:extend({
         name = "sonic-train-r1",
         icon = "__RERailworld__/graphics/icons/sonicTrains/sonic-train-r1.png",
         icon_size = 32,
-        flags = {"placeable-neutral", "placeable-off-grid", "not-on-map"},
+        flags = {"placeable-neutral", "placeable-off-grid"},
         minable = {mining_time = 1, result = "sonic-train-r1"},
         mined_sound = {filename = "__core__/sound/deconstruct-medium.ogg"},
         max_health = 1500,
@@ -107,7 +107,7 @@ data:extend({
         air_resistance = 0.000001,
         vertical_selection_shift = -0.5,
         energy_per_hit_point = 5,
-        resistances ={
+        resistances = {
             {type = "physical", decrease = 15, percent = 30 },
             {type = "impact",decrease = 50,percent = 60}
         },
@@ -204,6 +204,18 @@ data:extend({
                 sound ={{filename = "__base__/sound/train-breaks.ogg",volume = 0.6},}
             }
         },
+        minimap_representation = {
+            filename = "__base__/graphics/entity/locomotive/minimap-representation/locomotive-minimap-representation.png",
+            flags = {"icon"},
+            size = {20, 40},
+            scale = 0.5
+        },
+        selected_minimap_representation = {
+            filename = "__base__/graphics/entity/locomotive/minimap-representation/locomotive-selected-minimap-representation.png",
+            flags = {"icon"},
+            size = {20, 40},
+            scale = 0.5
+        },
         drive_over_tie_trigger = drive_over_tie(),
         drive_over_tie_trigger_minimal_speed = 0.5,
         tie_distance = 50,
@@ -218,7 +230,7 @@ data:extend({
         name = "sonic-train-r2",
         icon = "__RERailworld__/graphics/icons/sonicTrains/sonic-train-r2.png",
         icon_size = 32,
-        flags = {"placeable-neutral", "placeable-off-grid", "not-on-map"},
+        flags = {"placeable-neutral", "placeable-off-grid"},
         minable = {mining_time = 1, result = "sonic-train-r2"},
         mined_sound = {filename = "__core__/sound/deconstruct-medium.ogg"},
         max_health = 2500,
@@ -330,6 +342,18 @@ data:extend({
                 sound ={{filename = "__base__/sound/train-breaks.ogg",volume = 0.6},}
             },
         },
+        minimap_representation = {
+            filename = "__base__/graphics/entity/locomotive/minimap-representation/locomotive-minimap-representation.png",
+            flags = {"icon"},
+            size = {20, 40},
+            scale = 0.5
+        },
+        selected_minimap_representation = {
+            filename = "__base__/graphics/entity/locomotive/minimap-representation/locomotive-selected-minimap-representation.png",
+            flags = {"icon"},
+            size = {20, 40},
+            scale = 0.5
+        },
         drive_over_tie_trigger = drive_over_tie(),
         drive_over_tie_trigger_minimal_speed = 0.5,
         tie_distance = 50,
@@ -344,7 +368,7 @@ data:extend({
         name = "sonic-train-r3",
         icon = "__RERailworld__/graphics/icons/sonicTrains/sonic-train-r3.png",
         icon_size = 32,
-        flags = {"placeable-neutral", "placeable-off-grid", "not-on-map"},
+        flags = {"placeable-neutral", "placeable-off-grid"},
         minable = {mining_time = 1, result = "sonic-train-r3"},
         mined_sound = {filename = "__core__/sound/deconstruct-medium.ogg"},
         max_health = 3500,
@@ -469,6 +493,18 @@ data:extend({
                     }
                 }
             }
+        },
+        minimap_representation = {
+            filename = "__base__/graphics/entity/locomotive/minimap-representation/locomotive-minimap-representation.png",
+            flags = {"icon"},
+            size = {20, 40},
+            scale = 0.5
+        },
+        selected_minimap_representation = {
+            filename = "__base__/graphics/entity/locomotive/minimap-representation/locomotive-selected-minimap-representation.png",
+            flags = {"icon"},
+            size = {20, 40},
+            scale = 0.5
         },
         drive_over_tie_trigger = drive_over_tie(),
         drive_over_tie_trigger_minimal_speed = 0.5,

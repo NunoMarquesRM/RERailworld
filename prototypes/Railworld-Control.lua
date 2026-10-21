@@ -104,7 +104,7 @@ function create_cargo_wagon(options)
         name = options.name,
         icon = options.icon,
         icon_size = 32,
-        flags = {"placeable-neutral", "player-creation", "placeable-off-grid", "not-on-map"},
+        flags = {"placeable-neutral", "placeable-off-grid"},
         inventory_size = options.inventory_size,
         minable = {mining_time = 1, result = options.name},
         mined_sound = {filename = "__core__/sound/deconstruct-medium.ogg"},
@@ -135,6 +135,18 @@ function create_cargo_wagon(options)
         open_sound = {filename = "__base__/sound/machine-open.ogg", volume = 0.85},
         close_sound = {filename = "__base__/sound/machine-close.ogg", volume = 0.75},
         sound_minimum_speed = 0.5,
-        vehicle_impact_sound = {filename = "__base__/sound/car-wood-impact.ogg", volume = 1.0}
+        vehicle_impact_sound = {filename = "__base__/sound/car-wood-impact.ogg", volume = 1.0},
+        minimap_representation = {
+            filename = "__base__/graphics/entity/cargo-wagon/minimap-representation/cargo-wagon-minimap-representation.png",
+            flags = {"icon"},
+            size = {20, 40},
+            scale = 0.5
+        },
+        selected_minimap_representation = {
+            filename = "__base__/graphics/entity/cargo-wagon/minimap-representation/cargo-wagon-selected-minimap-representation.png",
+            flags = {"icon"},
+            size = {20, 40},
+            scale = 0.5
+        }
     }
 end

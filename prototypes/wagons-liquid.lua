@@ -30,7 +30,7 @@ data:extend({
     name = "fluid-wagon-r1",
     icon = "__RERailworld__/graphics/icons/wagon/liquid-wagon-r1.png",
     icon_size = 32,
-    flags = {"placeable-neutral", "player-creation", "placeable-off-grid", "not-on-map"},
+    flags = {"placeable-neutral", "placeable-off-grid"},
     capacity = 150000, --150k
     minable = {mining_time = 1, result = "fluid-wagon-r1"},
     mined_sound = {filename = "__core__/sound/deconstruct-medium.ogg"},
@@ -112,6 +112,18 @@ data:extend({
         lines_per_file = 4,
         shift = {0.42, -1}
     }}}},
+    minimap_representation = {
+        filename = "__base__/graphics/entity/cargo-wagon/minimap-representation/cargo-wagon-minimap-representation.png",
+        flags = {"icon"},
+        size = {20, 40},
+        scale = 0.5
+    },
+    selected_minimap_representation = {
+        filename = "__base__/graphics/entity/cargo-wagon/minimap-representation/cargo-wagon-selected-minimap-representation.png",
+        flags = {"icon"},
+        size = {20, 40},
+        scale = 0.5
+    },
     wheels = standard_train_wheels,
     rail_category = "regular",
     drive_over_tie_trigger = drive_over_tie(),
@@ -125,7 +137,7 @@ data:extend({
     name = "fluid-wagon-r2",
     icon = "__RERailworld__/graphics/icons/wagon/liquid-wagon-r2.png",
     icon_size = 32,
-    flags = {"placeable-neutral", "player-creation", "placeable-off-grid", "not-on-map"},
+    flags = {"placeable-neutral", "placeable-off-grid"},
     minable = {mining_time = 1, result = "fluid-wagon-r2"},
     mined_sound = {filename = "__core__/sound/deconstruct-medium.ogg"},
     max_health = 2000,
@@ -207,6 +219,18 @@ data:extend({
         lines_per_file = 4,
         shift = {0.42, -0.875}
     }}}},
+    minimap_representation = {
+        filename = "__base__/graphics/entity/cargo-wagon/minimap-representation/cargo-wagon-minimap-representation.png",
+        flags = {"icon"},
+        size = {20, 40},
+        scale = 0.5
+    },
+    selected_minimap_representation = {
+        filename = "__base__/graphics/entity/cargo-wagon/minimap-representation/cargo-wagon-selected-minimap-representation.png",
+        flags = {"icon"},
+        size = {20, 40},
+        scale = 0.5
+    },
     wheels = standard_train_wheels,
     rail_category = "regular",
     drive_over_tie_trigger = drive_over_tie(),

@@ -42,7 +42,7 @@ data:extend({
         {{type = "item", name = "workshop-giga-r1", amount = 1}}
     ),
 --ENTITY
-    {--Workshop Locomotive
+    {-- Workshop Locomotive
         type = "assembling-machine",
         name = "workshop-loco-r1",
         icon = "__RERailworld__/graphics/icons/machinery/workshop-loco.png",
@@ -78,7 +78,7 @@ data:extend({
         order="a-b",
         subgroup = "re-workshop"
     },
-    {--Workshop Wagon
+    {-- Workshop Wagon
         type = "assembling-machine",
         name = "workshop-wagon-r1",
         icon = "__RERailworld__/graphics/icons/machinery/workshop-wagon.png",
@@ -115,7 +115,7 @@ data:extend({
         order="a-c",
         subgroup = "re-workshop"
     },
-    {--Workshop Extreme Fuel
+    {-- Workshop Extreme Fuel
         type = "assembling-machine",
         name = "workshop-giga-r1",
         icon = "__RERailworld__/graphics/icons/machinery/workshop-giga-fuel.png",
